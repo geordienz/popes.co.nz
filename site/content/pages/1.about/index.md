@@ -33,7 +33,7 @@ team:
     name: Leigh Pope
     title: Accounts
     photo: /assets/img/team/leigh.jpg
-  -  
+ -  
     name: Zak Portland
     title: Production Manager
     photo: /assets/img/team/zak.jpg
