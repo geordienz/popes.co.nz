@@ -18,21 +18,21 @@ team:
     title: Sales Consultant
     photo: /assets/img/team/dee.jpg
  - 
-    name: Richard Graham
-    title: Project Manager
-    photo: /assets/img/team/richie.jpg
- - 
     name: John Sutcliffe
     title: Engineering & Pricing Mgr
     photo: /assets/img/team/john2.jpg
  - 
-    name: Shelley Barnett
-    title: Purchasing Mgr
-    photo: /assets/img/team/shelley.jpg 
- -
     name: Leigh Pope
     title: Accounts
     photo: /assets/img/team/leigh.jpg
+ -
+     name: Richard Graham
+    title: Project Manager
+    photo: /assets/img/team/richie.jpg
+ - 
+    name: Shelley Barnett
+    title: Purchasing Mgr
+    photo: /assets/img/team/shelley.jpg 
  -  
     name: Zak Portland
     title: Production Manager
