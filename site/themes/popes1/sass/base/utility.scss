@@ -1,0 +1,43 @@
+.text-sm { font-size: 13px; }
+.text-md { font-size: 16px; }
+.text-lg { font-size: 21px; }
+.text-xl { font-size: 28px; }
+
+.content-area {
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    &.wide {
+      max-width: 960px;
+    }
+}
+
+.flexy {
+    display: flex;
+    align-items: center;
+    &.column { flex-direction: column;}
+    .fill { flex: 1; }
+}
+
+.dots {
+  background: url('../img/popebadge-grey.png') center center no-repeat;
+}
+
+.minor {
+  color: #767676;
+}
+
+// @media all and (max-width: 640px) {
+//     .block-lg,
+//     .block-md,
+//     .block-sm {
+//         &.last { margin-bottom: 0; }
+//     }
+//
+//     .block-lg { margin-bottom: 40px; }
+//     .block-md { margin-bottom: 32px; }
+//     .block-sm { margin-bottom: 24px; }
+//
+// }

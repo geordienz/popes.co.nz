@@ -1,0 +1,21 @@
+<div class="hero compact py-6">
+    <div class="content-area standout">
+        <h1>{{ title }}</h1>
+        {{ intro | markdown | widont }}
+    </div>
+</div>
+
+<div class="my-7 max-w-md mx-auto">
+    {{ collection:blog as="posts" }}
+    {{ if no_results }}
+        <p> Unfortunately, we have no vacancies at present. The nature of our business means that this situation can change frequently, so please check back often.</p>
+    {{ /if }}
+    {{ posts }}
+    <div class="mb-7 shadow-lg p-4 rounded">
+        <h2 class="mb-2"><a class="" href="{{ url }}">{{ title }}</a></h2>
+        <p class="font-caption text-sm text-grey">Posted on <strong class="text-grey-dark">{{ date }}</strong></p>
+        {{ summary | markdown }}
+    </div>
+    {{ /posts }}
+    {{ /collection:blog }}
+</div>

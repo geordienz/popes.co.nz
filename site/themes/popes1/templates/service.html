@@ -1,0 +1,20 @@
+{{ partial:hero }}
+
+<div class="content-area standout text-center mb-8">
+    {{ content }}
+</div>
+
+{{ if tiles }}
+<div class="tiles mb-8">
+    {{ tiles as="tile" }}
+    <div class="tile-pair {{ switch between="odd|even" }}">
+        <div class="tile text-only {{ if type == "full" }}full{{ /if }}">
+            <div class="tile-content">
+                {{ content | markdown }}
+            </div>
+        </div>
+        {{ tile | partial:type }}
+    </div>
+    {{ /tiles }}
+</div>
+{{ /if }}

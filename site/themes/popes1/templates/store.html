@@ -1,0 +1,31 @@
+{{ partial:hero }}
+
+<div class="content-area standout text-center mb-8">
+    {{ content }}
+</div>
+
+<div class="tiles mb-8">
+    <div class="tile-pair odd">
+        <div class="tile text-only">
+            <div class="tile-content">
+                <h2>Brochures for Our Regency Hearth Products</h2>
+                <ul class="file-list">
+                    {{ files }}
+                    <li>
+                        <a href="{{ file }}" target="_blank">
+                            {{ theme:output src="img/pdf-icon.svg" }}
+                            <span>{{ description }}</span>
+                        </a>
+                    </li>
+                    {{ /files }}
+                </ul>
+            </div>
+        </div>
+        <a class="tile shout flexy" href="{{ store_link }}">
+            <div class="h1-like">
+                <small>{{ link_text_small }}</small>
+                {{ link_text_large }}
+            </div>
+        </a>
+    </div>
+</div>

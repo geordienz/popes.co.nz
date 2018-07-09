@@ -1,0 +1,46 @@
+<div id="mobile-nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        {{ nav from="/" hide_from_nav:isnt="true" scope="page" }}
+        <li><a href="{{ url }}">{{ page:nav_title or page:title }}</a></li>
+        {{ /nav }}
+        <li><a href="tel:07-542-3355" class="phone">(07) 542-3355</a></li>
+    </ul>
+</div>
+
+<nav class="nav">
+    <div class="logo">
+        <a href="/" title="pope electrical">
+            {{ theme:output src="img/logo.svg" }}
+        </a>
+    </div>
+    <ul class="main-nav">
+        {{ nav from="/" hide_from_nav:isnt="true" scope="page" }}
+            <li {{ if slug == "services" || slug == "locations"}} class="has-dropdown"{{ /if }}>
+                <a href="{{ url }}" class="{{ if is_current || is_parent }}active{{ /if }}">
+                    {{ page:nav_title or page:title }}
+                </a>
+                {{ if slug == "services" }}
+                <ul class="dropdown">
+                    <li><a href="/services"><strong>Services Overview</strong></a></li>
+                    {{ collection:services sort="title:asc" }}
+                    <li><a href="{{ url }}">{{ title }}</a></li>
+                    {{ /collection:services }}
+                </ul>
+                {{ /if }}
+                {{ if slug == "locations" }}
+                <ul class="dropdown">
+                    <li><a href="/locations"><strong>We currently have projects in:-</strong></a></li>
+                    {{ collection:locations sort="title:asc" }}
+                    <li><a href="{{ url }}">{{ title }}</a></li>
+                    {{ /collection:locations }}
+                </ul>
+                {{ /if }}
+            </li>
+        {{ /nav }}
+        <li><a href="tel:07-542-3355" class="phone">(07) 542-3355</a></li>
+    </ul>
+    <a class="toggle-panel">
+        {{ theme:output src="img/nav.svg" }}
+    </a>
+</nav>

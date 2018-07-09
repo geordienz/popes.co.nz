@@ -1,0 +1,16 @@
+title: Customer Quote
+hide: true
+fields:
+  content:
+      display: The Quote
+      instructions: Make sure to include the quotation marks!
+    type: textarea
+  shorty:
+    instructions: A shorter version of the quote to use in small areas of the site.
+    type: textarea
+  gender:
+    type: radio
+    options:
+      - male
+      - female
+ 

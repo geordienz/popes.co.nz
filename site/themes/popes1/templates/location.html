@@ -1,0 +1,34 @@
+<div class="hero mb-7">
+    <div class="breadcrumbs">
+        <ul>
+            {{ nav:breadcrumbs include_home="true" scope="crumb" }}
+                <li><a href="{{ url }}">{{ crumb:nav_title or crumb:title }}</a></li>
+                {{ unless last }}<li class="divider">></li>{{ /unless }}
+            {{ /nav:breadcrumbs }}
+        </ul>
+    </div>
+    <div class="content-area standout">
+        <h1>{{ title }}</h1>
+        {{ intro | markdown | widont }}
+    </div>
+</div>
+
+<div class="content-area mb-7">
+    {{ content | widont }}
+</div>
+
+{{ if quote }}
+<div class="quote full">
+    {{ relate:quote }}
+        {{ if gender == "female" }}
+          <img src="/assets/img/comic-book-woman.png" height="360" width="360" alt="Woman" class="photo">
+        {{ /if }}
+        <div class="flexy">
+            <div class="content">
+                <h2>{{ title }} from {{ town }} Says...</h2>
+                {{ content }}
+            </div>
+        </div>
+    {{ /relate:quote}}
+</div>
+{{ /if }}

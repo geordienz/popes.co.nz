@@ -1,0 +1,21 @@
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  border: none;
+  border-radius: 5px;
+  background: #777;
+  color: #fff;
+  font-size: 15px;
+  margin-bottom: 24px;
+  padding: 5px 10px;
+  height: 40px;
+  width: 100%;
+  &::-webkit-input-placeholder {
+      color: rgba(255,255,255,.5);
+  }
+}
+
+textarea {
+  height: 120px;
+}

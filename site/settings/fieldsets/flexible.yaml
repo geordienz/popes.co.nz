@@ -1,0 +1,48 @@
+title: Flexible Page
+taxonomies: false
+fields:
+  template:
+    type: template
+  blocks:
+    type: replicator
+    sets:
+      hero:
+        display: Hero
+        fields:
+          photo:
+            type: assets
+            max_files: 1
+          content:
+            type: markdown
+      panel:
+        display: Content Block
+        fields:
+          header:
+            type: text
+          content:
+            type: markdown
+      video:
+        display: Video Embed
+        fields:
+          youtube_id:
+            type: text
+          caption:
+            type: text
+      quote:
+        display: Quote
+        fields:
+          quote:
+            type: markdown
+          cite:
+            type: text
+      callouts:
+        display: Callouts
+        fields:
+          callout_1_link:
+            type: text
+          callout_1_content:
+            type: markdown
+          callout_2_link:
+            type: text
+          callout_2_content:
+            type: markdown

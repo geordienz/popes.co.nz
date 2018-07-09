@@ -1,0 +1,129 @@
+.hero {
+    background: $blue url('../img/popebadge-white-top-right.png') top right no-repeat;
+    color: #fff;
+    min-height: 485px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    a {
+      color: #fff;
+      font-weight: bold;
+      &:hover { color: $tan; }
+    }
+    
+    &.red {
+        background: $red url('../img/popebadge-white-top-right.png') top right no-repeat;
+    }
+}
+
+.hero.compact {
+  min-height: 280px;
+  text-align: center;
+
+  .content-area { max-width: 960px; }
+
+  h1 { font-size: 80px; }
+}
+
+.hero.naked {
+    background: #fff;
+    color: $dark;
+    text-align: center;
+    .content-area { max-width: 960px; }
+}
+
+.hero.red { background-color: $red !important; }
+.hero.tan { background-color: $tan !important; }
+.hero.blue { background-color: $blue !important; }
+.hero.dark { background-color: $dark !important; }
+
+
+.hero.split {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    > * {color: #fff; }
+
+    > div {
+        width: 50%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        min-height: 485px;
+    }
+    .content {
+        padding: 64px;
+        // -webkit-clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+        // clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
+    }
+    .media {
+        background-position: center center;
+        // -webkit-clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 5% 100%);
+        // clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 5% 100%);
+    }
+}
+
+.hero.split.red {
+    background: $red url('../img/popebadge-white-top-left.png') no-repeat top left;
+}
+
+.hero.split.tan {
+    background: $tan url('../img/popebadge-white-top-left.png') no-repeat top left;
+}
+
+
+@media all and (max-width: 960px) {
+    .hero.split {
+        min-height: 0;
+        padding-top: 0 !important;
+
+        > div {
+            min-height: 330px;
+        }
+
+        .content {
+            padding: 16px 32px;
+        }
+    }
+}
+
+
+@media all and (max-width: 800px) {
+    .hero {
+        padding-top: 42px;
+        min-height: 0;
+        padding-bottom: 16px;
+    }
+
+    .hero.split h1 {
+        font-size: 48px;
+    }
+
+    .hero.compact h1 {
+        font-size: 36px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .hero.split > div {
+        width: 100%;
+    }
+    .hero.split .media {
+        position: absolute;;
+    }
+    .hero.split .content {
+        background-color: rgba(0,0,0,.5);
+        padding: 16px 40px;
+        position: relative;
+        z-index: 3;
+    }
+}

@@ -1,0 +1,133 @@
+.tiles {
+    background: $faint;
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .tile-pair {
+        display: flex;
+
+        .tile {
+            width: 50%;
+        }
+    }
+
+    .tile {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .tile.text-only {
+        padding: 40px;
+    }
+
+    .tile-pair.top .tile {
+      align-items: flex-start;
+      padding-top: 60px;
+      padding-bottom: 20px;
+    }
+
+    .even .tile.text-only {
+        order: 1;
+    }
+
+    .tile.shout {
+        color: #fff;
+        background-color: $blue;
+        background-repeat: no-repeat;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .odd .tile.shout {
+        background-image: url('../img/popebadge-white-bottom-right.png');
+        background-position: bottom right;
+    }
+
+    .even .tile.shout {
+        background-image: url('../img/popebadge-white-bottom-left.png');
+        background-position: bottom left;
+    }
+
+    a.tile.shout {
+        background-color: $red;
+        transition: all .15s ease;
+        &:hover {
+            background-color: $dark;
+        }
+    }
+
+    .tile.video {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .play-icon {
+            margin: 0 auto;
+        }
+
+        &:hover svg {
+            height: 48px;
+            width: 48px;
+        }
+    }
+
+    .tile.photo {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .tile.full {
+      width: 100%;
+      padding: 80px 120px;
+      text-align: left;
+    }
+
+    .tile.form {
+      background: $dark;
+      color: #fff;
+      display: block;
+      padding: 60px 40px;
+    }
+}
+
+@media all and (min-width: 900px) {
+    .tiles .tile {
+        min-height: 520px;
+    }
+}
+
+@media all and (max-width: 899px) {
+  .tiles .tile {
+    min-height: 480px;
+  }
+
+  .tiles .tile p {
+    font-size: 16px;
+  }
+}
+
+@media all and (max-width: 680px) {
+  .tiles .tile-pair { flex-wrap: wrap; }
+  .tiles .tile {
+    width: 100% !important;
+    flex-basis: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+
+  .tiles .even .tile.text-only { order: initial; }
+
+  .tiles .tile.shout {
+    text-align: center;
+    .h1-like { margin: auto; }
+  }
+}

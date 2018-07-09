@@ -1,0 +1,14 @@
+.caption {
+    @include caption;
+    position: absolute;
+    bottom: 16px;
+    right: 0;
+    z-index: 3;
+
+    .text {
+        display: block;
+        line-height: 1.25;
+        transform: skew(20deg);
+        -webkit-transform: skew(20deg);
+    }
+}

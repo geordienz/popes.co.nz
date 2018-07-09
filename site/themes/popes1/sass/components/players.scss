@@ -1,0 +1,28 @@
+.player {
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .embed {
+        box-shadow: 16px 16px 0 rgba(0,0,0,0.10);
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+
+        iframe, object, embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    footer {
+        @include caption-text;
+        margin: 15px 0 0;
+        text-align: right;
+    }
+}

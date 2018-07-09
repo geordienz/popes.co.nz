@@ -1,0 +1,40 @@
+.home-layout {
+    .callouts .callout {
+        min-height: 360px;
+    }
+
+    .quote {
+        padding: 64px 16px;
+        img { margin-bottom: 16px; }
+    }
+
+    .fireplace {
+        display: flex;
+        align-items: center;
+        a {
+            display: block;
+            width: 100%;
+        }
+
+        svg {
+            width: 160px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: $dark;
+            margin: 32px auto;
+            width: 100%;
+            transition: all .15s ease;
+            will-change: transform;
+        }
+
+        a:hover h2 {
+            margin: 24px auto;
+        }
+
+        p {
+            @include caption-text;
+        }
+    }
+}

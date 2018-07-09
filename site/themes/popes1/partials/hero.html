@@ -1,0 +1,14 @@
+<div class="hero mb-8" {{ if hero_background }} style="background: url('{{ hero_background }}');"{{ /if }}>
+    <div class="breadcrumbs">
+        <ul>
+            {{ nav:breadcrumbs include_home="true" scope="crumb" }}
+                <li><a href="{{ url }}">{{ crumb:nav_title or crumb:title }}</a></li>
+                {{ unless last }}<li class="divider">></li>{{ /unless }}
+            {{ /nav:breadcrumbs }}
+        </ul>
+    </div>
+    <div class="content-area standout">
+        <h1>{{ title | widont }}</h1>
+        {{ summary | markdown }}
+    </div>
+</div>

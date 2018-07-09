@@ -1,0 +1,11 @@
+<title>{{ meta_title or title }} – pope electrical</title>
+<meta name="description" content="{{ intro or summary or meta_description }}">
+<meta name="keywords" content="{{ meta_keywords }}, {{ counties | list }}"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="{{ if ! segment_2 }}article{{ else }}website{{ /if }}" />
+<meta property="og:title" content="{{ meta_title or title or "Electricians, Heat Pump, Solar and Electrical Contractors" }} - Pope Electrical in Tauranga" />
+<meta property="og:description" content="{{ meta_description }} " />
+<meta property="og:site_name" content="pope electrical" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="pope electrical offers all manner of electrical work, heat pump, solar and security installations in the bay of plenty and waikato - call {{ phone }} today!" />
+<meta name="twitter:title" content="{{ meta_title or title or "Electricians, Heat Pump, Solar and Electrical Contractors" }} - Pope Electrical in Tauranga" />

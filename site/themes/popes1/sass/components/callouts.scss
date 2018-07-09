@@ -1,0 +1,28 @@
+// .callouts {
+//     display: flex;
+//     align-items: center;
+//
+//     .callout {
+//         background: mix($dark, $tan, 15%);
+//         display: block;
+//         flex-basis: 50%;
+//         height: 100%;
+//         text-decoration: none;
+//         padding: 30px;
+//
+//         p, h2 { color: #fff; }
+//
+//         h2 { margin-bottom: 15px; }
+//
+//         &:first-child {
+//             padding-left: 120px;
+//         }
+//
+//         &:last-child {
+//             background: mix(black, $tan, 30%);
+//             padding-right: 120px;
+//         }
+//
+//         &:hover { background: mix(black, $tan, 25%); }
+//     }
+// }

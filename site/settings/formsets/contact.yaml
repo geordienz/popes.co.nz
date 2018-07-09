@@ -1,0 +1,29 @@
+title: Contact Us
+fields:
+  name:
+    display: Name
+  email:
+    display: Email
+  phone:
+    display: Phone
+  service:
+    display: Service
+  message:
+    display: Message
+columns:
+  - name
+  - email
+  - phone
+  - service
+  - message
+email:
+  - 
+    to: info@popes.co.nz
+    from: frank@popes.co.nz
+    reply_to: '{{ email }}'
+    subject: Pope Electrical Heatpump Service
+    automagic: true
+  - 
+    to: info@popes.co.nz
+    reply_to: '{{ email }}'
+    subject: Pope Electrical Call-out Request

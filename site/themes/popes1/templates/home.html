@@ -1,0 +1,95 @@
+<div class="block">
+    <div class="slider-wrapper">
+        <div id="slider">
+            {{ slides }}
+            <article class="slide" data-slidr="slide-{{ index }}">
+                <a class="hero {{ color }} split" href="{{ link }}">
+                    <div class="content">
+                        <h1 {{ if (title | wordcount) > 4 }}class="smaller"{{/if}}>{{ title }}</h1>
+                        {{ content | markdown }}
+                    </div>
+                    <div class="media" style="background-image: url('{{ image }}')"></div>
+                </a>
+            </article>
+            {{ /slides }}
+        </div>
+    </div>
+</div>
+
+<div class="content-area wide callouts mb-5 mt-5">
+    <div class="row around-xs callout">
+        <div class="col-md-5 text-center quote">
+            <blockquote>
+                “So happy with my new heat pump from Pope Electrical! Our lounge is so toasty now and we won't need to worry about the heat and humidity in the summer. And so impressed with how clean the Pope guy left the place.  Thank you!”
+            </blockquote>
+            <div class="media">
+                <img src="/assets/img/Samantha.png" alt="Raewyn from Papamoa" height="120" width="120">
+            </div>
+             <p>Raewyn from Papamoa</p>
+        </div>
+        <div class="col-md-5 dots callout fireplace">
+            <a href="/store" class="text-center">
+                {{ theme:output src="img/fujitsu-logo.svg" }}
+                <h2>Efficient Heating</h2>
+                <p>Let us fit a Fujitsu for you!</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="player block-md">
+  <div class="embed">
+      <iframe width="1280" height="720" src="https://www.youtube.com/embed/{{ youtube_id }}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="content-area standout text-center mb-8">
+    <p><strong>Pope Electrical's 60 years in business means a lot.</strong> Our strong work ethic means we get the job done, get it done right, and we reckon our customers appreciate that. We’re highly qualified, and proud to provide services to our local community and beyond.</p>
+</div>
+
+<div class="tiles mb-8 last">
+    <div class="tile-pair">
+        <div class="tile text-only">
+            <div class="tile-content">
+                <h2>We're Certified & Insured</h2>
+                <p>There are a lot of 'cowboys' out there. Make sure you get the very best tradesmen New Zealand can offer by only hiring from a reputable and certified source.</p>
+                <p>Pope Electrical employs the most professional and dedicated electricians and installers in the business.</p>
+            </div>
+        </div>
+        <a class="tile shout flexy" href="/contact">
+            <div class="h1-like">
+                <small>Call (07) 542 3355</small>
+                Schedule a consultation!
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+
+{{ section:footer }}
+<script>
+
+
+$('#slider').slippry({
+  // general elements & wrapper
+  slippryWrapper: '<div class="slippry-slider" />', // wrapper to wrap everything, including pager
+  elements: 'article', // elments cointaining slide content
+
+  // options
+  adaptiveHeight: false, // height of the sliders adapts to current
+  captions: false,
+
+  // pager
+  pager: false,
+
+  // transitions
+  transition: 'horizontal', // fade, horizontal, kenburns, false
+  speed: 1200,
+  pause: 8000,
+
+});
+
+</script>
+{{ /section:footer }}

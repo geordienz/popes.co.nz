@@ -1,0 +1,27 @@
+<div class="hero block-md">
+    <div class="breadcrumbs">
+        <ul>
+            {{ nav:breadcrumbs include_home="true" scope="crumb" includ }}
+                <li><a href="{{ url }}">
+                    {{ if is_current }}Here{{ else }}{{ crumb:nav_title or crumb:title }}{{ /if }}
+                </a></li>
+                {{ unless last }}<li class="divider">></li>{{ /unless }}
+            {{ /nav:breadcrumbs }}
+        </ul>
+    </div>
+    <div class="content-area standout">
+        <h1>{{ title | widont }}</h1>
+        <h4>Posted on {{ date }}</h4>
+    </div>
+</div>
+
+<div class="content-area mb-7">
+    <div class="text-2xl my-5">
+        {{ summary | markdown | widont }}
+    </div>
+    {{ content | widont }}
+</div>
+
+<div class="text-center mb-7">
+    <a class="button primary" href="/contact">Contact us today!</a>
+</div>

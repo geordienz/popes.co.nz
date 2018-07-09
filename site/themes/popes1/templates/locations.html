@@ -1,0 +1,27 @@
+<div class="hero compact mb-5">
+    <div class="breadcrumbs">
+        <ul>
+            {{ nav:breadcrumbs include_home="true" scope="crumb" }}
+                <li><a href="{{ url }}">{{ crumb:nav_title or crumb:title }}</a></li>
+                {{ unless last }}<li class="divider">></li>{{ /unless }}
+            {{ /nav:breadcrumbs }}
+        </ul>
+    </div>
+    <div class="content-area standout">
+        <h1 class="h2-like">{{ page_title | widont }}</h1>
+        {{ content }}
+    </div>
+</div>
+
+<div class="container block-md">
+    <div class="row block-list">
+        {{ collection:locations }}
+        <div class="col-md-4">
+            <a class="block-item text-center" href="{{ url }}">
+                <h3>{{ title }}</h3>
+                {{ intro | markdown }}
+            </a>
+        </div>
+        {{ /collection:locations }}
+    </div>
+</div>

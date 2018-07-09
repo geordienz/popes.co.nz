@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Another awesome Statamic site">
+    <title>{{ title or site_title }}</title>
+    <link rel="stylesheet" href="{{ theme:css }}">
+    <script src="https://use.typekit.net/wrq5lvr.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+<body class="style-guide">
+
+    <h1>Style Guide</h1>
+
+    <div class="component">
+        <h6>Nav</h6>
+        <nav class="nav">
+            <div class="logo">
+                <a href="/">
+                    {{ theme:output src="img/logo.svg" }}
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="">Home</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="">Homeowner Guide</a></li>
+                <li><a href="" class="button primary">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="component">
+        <h6>Hero</h6>
+        <div class="hero">
+            <div class="hero-media">
+                <img src="{{ theme:img src="fireplace.jpg" }}" alt="">
+            </div>
+            <div class="hero-body">
+                <div class="hero-body-content">
+                    <h1>Has your chimney been inspected this year?</h1>
+                    <p>For your own safety, wood burning fireplaces need to be inspected every single year. If you’re a new homeowner, it’s best to get one right away.</p>
+                    <p>
+                        <a href="" class="button primary">Schedule Inspection</a>
+                        <small>or call us at (123) 123-1234.</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="component">
+        <h6>Panel</h6>
+        <div class="panel side-by-side">
+            <div class="panel-header">
+                <h2>Panel Header</h2>
+            </div>
+            <div class="panel-content">
+                {{ markdown:indent }}
+                Education is a priority in this business.  A professional must know the chimney building codes, proper cleaning techniques, different appliances, and be able to trouble shoot problems in the field. A bunch of other words would go here to fill out this section so it’s a bit more detailed, but not too detailed.
+
+                Most people won’t read all of it, they’re just looking for a few keywords to keep them from leaving the site. It’s all about making a difference. Or something like that.
+                {{ /markdown:indent }}
+            </div>
+        </div>
+    </div>
+
+    <div class="component">
+        <h6>Player</h6>
+        <div class="player">
+            <!-- Later -->
+        </div>
+    </div>
+
+    <div class="component">
+        <h6>Blockquote Panel</h6>
+        <div class="panel">
+            <blockquote>
+                “Our tech was on time, friendly, and professional. He was thorough in his inspection of my chimney and dryer vent. He even took the time to educate me about safety and proper maintenance. Plus, he wore a top hat!”
+                <footer>&mdash; Maggie, Round Lake, NY</footer>
+            </blockquote>
+        </div>
+    </div>
+
+    <div class="component">
+        <h6>Callout</h6>
+        <div class="callouts">
+            <a class="callout" href="#">
+                <h2>Header</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro impedit rerum libero explicabo quasi totam fugiat minima nihil officia unde nam incidunt, nemo veniam adipisci neque quia repellendus vero pariatur.
+            </a>
+            <a class="callout" href="#">
+                <h2>Header</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro impedit rerum libero explicabo quasi totam fugiat minima nihil officia unde nam incidunt, nemo veniam adipisci neque quia repellendus vero pariatur.
+            </a>
+        </div>
+    </div>
+
+    <div class="component">
+        <h6>Map</h6>
+        <div class="map">
+            <!-- Later -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <h6>Footer</h6>
+        <div class="contact">
+            <a href="tel:123-123-1234" class="telephone">123-123-1234</a>
+            <a href="mailto:info@example.com">info@example.com</a>
+            <p class="minor">Based in Somewhere, USA.</p>
+        </div>
+        <div class="social">
+            <h6>Follow Us</h6>
+            <ul class="links">
+                <ul>
+                    <li>
+                        <a href="#">Yelp</a>
+                        <a href="">Twitter</a>
+                        <a href="">Facebook</a>
+                        <a href="">YouTube</a>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="{{ theme:js }}"></script>
+</body>
+</html>

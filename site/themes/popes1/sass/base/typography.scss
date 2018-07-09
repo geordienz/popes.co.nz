@@ -1,0 +1,91 @@
+h1,
+.h1-like {
+    @include smooth;
+    font-size: 100px;
+    font-family: $font_headline;
+    font-weight: normal;
+    line-height: 1;
+    text-shadow: 8px 8px 0 rgba(0,0,0,0.10);
+    width: 100%;
+
+    small { margin-bottom: 8px; }
+    &.smaller { font-size: 64px; }
+}
+
+h2,
+.h2-like {
+    @include smooth;
+    font-family: $font_headline;
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 32px;
+
+    em {
+      font-style: normal;
+      color: $blue;
+    }
+}
+
+h3,
+.h3-like {
+    @include smooth;
+    font-size: 21px;
+    line-height: 1.25;
+    margin: 24px 0;
+}
+
+strong {
+    @include smooth;
+    font-weight: bold;
+}
+
+.standout > p,
+p.standout {
+    @include smooth;
+    font-size: 24px;
+    line-height: 1.75;
+    font-weight: 300;
+}
+
+p + h2,
+p + p > img {
+  margin-top: 32px;
+}
+
+small {
+    @include caption-text;
+    display: block;
+}
+
+a {
+    color: $red;
+    &:hover { color: $dark; }
+}
+
+blockquote {
+  @include caption-text;
+}
+
+.highlight {
+    background-image: linear-gradient(-100deg, rgba(250,247,133,0.3), rgba(250,247,133,0.7) 95%, rgba(250,247,133,0.1));
+    border-radius: 1em 0;
+    padding: 0 .35em;
+    margin: 0 -.35em;
+}
+
+@media all and (max-width: 1040px) {
+  h1, .h1-like { font-size: 80px; }
+}
+
+@media all and (max-width: 920px) {
+  h1, .h1-like { font-size: 64px; }
+}
+
+@media all and (max-width: 800px) {
+    .standout > p,
+    p.standout {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}

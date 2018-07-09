@@ -1,0 +1,57 @@
+<div class="hero mb-8">
+    <div class="breadcrumbs">
+        <ul>
+            {{ nav:breadcrumbs include_home="true" scope="crumb" }}
+                <li><a href="{{ url }}">{{ crumb:nav_title or crumb:title }}</a></li>
+                {{ unless last }}<li class="divider">></li>{{ /unless }}
+            {{ /nav:breadcrumbs }}
+        </ul>
+    </div>
+    <div class="content-area">
+        <h1>Our office team</h1>
+        <p class="standout"><strong>Pope Electrical is a third generation family business</strong> dedicated to servicing your electrical needs. Customer service is our priority - it's what lies behind our motto of <strong>"Do it ONCE - Do it RIGHT"</strong>. We promise that our registered electricians and installers will be on time, provide quality work, without mess, at a fair price.</p>
+    </div>
+</div>
+
+<div class="gallery block-md">
+    {{ team }}
+    <div class="gallery-item photo">
+        <img src="{{ photo }}" alt="{{ name }} - {{ title }}">
+        <div class="caption">
+            <div class="text text-right">
+                <span class="text-md block">{{ name }}</span>
+                <span class="text-red">{{ title }}</span>
+            </div>
+        </div>
+    </div>
+    {{ /team }}
+</div>
+
+<div class="content-area standout text-center mb-8">
+    <p><strong>All of our electricans (except, of course, our apprentices) are fully-qualified tradesmen,</strong>  registered by the EWRB of New Zealand. We’re highly insured, and completely dedicated to electrical efficiency and safety.</p>
+</div>
+
+<div class="tiles mb-8">
+    <div class="tile-pair">
+        <div class="tile text-only">
+            <div class="tile-content">
+                <h2>Our Certifications</h2>
+                <p>Certified by the NZ Electrical Workers Registration Board.</p>
+                <p>Members of Master Electricians New Zealand.</p>
+               
+            </div>
+        </div>
+        <div class="tile shout flexy">
+            <div class="h1-like">
+                <small>We are</small>
+                Highly Trained
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-area standout text-center mb-8">
+    <p><strong>Pope Electrical proudly provide all manner of electrical services in the Bay of Plenty and Waikato</strong>, from Tauranga to Rotorua to Hamilton and everything in between. We’re a local company who love to serve our community. We hope to hear from you soon.</p>
+</div>
+
+{{ partial:creds }}

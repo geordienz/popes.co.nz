@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ partial:meta }}
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="{{ theme:css }}">
+    <link rel="icon" type="image/png" href="/favicon@2x.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="16x16" />
+    <script src="https://use.typekit.net/wrq5lvr.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+
+<body class="{{ template }}-layout {{ body_class }}">
+    {{ partial:nav }}
+    {{ template_content }}
+    {{ partial:footer }}
+</body>
+</html>

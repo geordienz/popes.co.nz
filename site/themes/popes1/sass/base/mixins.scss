@@ -1,0 +1,21 @@
+@mixin smooth() {
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin caption-text() {
+    font-family: $font_caption;
+    font-size: 15px;
+    font-style: italic;
+}
+
+@mixin caption {
+    @include caption-text;
+    @include smooth;
+    background: #fff;
+    box-shadow: 12px 10px 0 rgba(0,0,0,.25);
+    color: $dark;
+    width: auto;
+    padding: 8px 24px;
+    transform: skew(-20deg);
+    -webkit-transform: skew(-20deg);
+}

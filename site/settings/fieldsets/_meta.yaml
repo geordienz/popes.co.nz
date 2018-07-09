@@ -1,0 +1,14 @@
+title: Meta Data
+hide: true
+taxonomies: false
+fields:
+  meta_data:
+    type: section
+    display: Meta Data
+  meta_title:
+    type: text
+    instructions: Leave blank to default to the `title`
+  meta_description:
+    type: textarea
+  meta_keywords:
+    type: text

@@ -1,0 +1,31 @@
+body {
+    background: #fff;
+    color: $body;
+    line-height: 1.5;
+    font-family: $font_sans;
+    font-size: 18px;
+}
+
+a {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+.full-height {
+    height: calc(100vh - 250px);
+    display: flex;
+
+    > div { width: 100%; }
+
+    h1 { font-size: 100px; }
+}
+
+.dark {
+    background: $dark;
+    color: #fff;
+
+    h1, h2 { color: $tan; }
+}

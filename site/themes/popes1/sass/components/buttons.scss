@@ -1,0 +1,26 @@
+.button {
+    @include caption-text;
+    background: $blue;
+    color: #fff;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 26px;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+        background: mix(black, $tan, 10%);;
+        color: #fff;
+    }
+}
+
+.button.primary {
+    background: $primary;
+    color: #fff;
+    &:hover {
+        color :#fff;
+        background: mix(black, $primary, 10%);
+    }
+}

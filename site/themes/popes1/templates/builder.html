@@ -1,0 +1,110 @@
+{{ blocks }}
+    {{ if type == "hero" }}
+        <div class="hero">
+            <div class="hero-media">
+                <img src="{{ photo }}" alt="">
+            </div>
+            <div class="hero-body">
+                <div class="hero-body-content">
+                    {{ content | markdown }}
+                    <p>
+                        <a href="/contact" class="button primary">Schedule Inspection</a>
+                        <small>or call us at {{ phone }}.</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {{ /if }}
+
+    {{ if type =="panel" }}
+        <div class="panel side-by-side">
+            <div class="panel-header">
+                <h2>{{ header }}</h2>
+            </div>
+            <div class="panel-content">
+                {{ content | markdown }}
+            </div>
+        </div>
+    {{ /if }}
+
+    {{ if type == "video" }}
+        <div class="panel video">
+            <div class="player">
+                <div class="embed">
+                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/{{ youtube_id }}?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <footer>
+                    {{ caption }}
+                </footer>
+            </div>
+        </div>
+    {{ /if }}
+
+    {{ if type == "quote" }}
+        <div class="panel">
+            <blockquote>
+                {{ quote | ensure_left:&ldquo; | ensure_right:&ldquo; |  markdown }}
+                {{ if cite }}<footer>&mdash; {{ cite }}</footer>{{ /if }}
+            </blockquote>
+        </div>
+    {{ /if }}
+
+    {{ if type == "callouts" }}
+        <div class="callouts">
+
+            <a class="callout" href="{{ callout_1_link }}">
+                {{ callout_1_content | markdown }}
+            </a>
+            <a class="callout" href="{{ callout_2_link }}">
+                {{ callout_2_content | markdown }}
+            </a>
+        </div>
+    {{ /if }}
+{{ /blocks }}
+
+{{ unless hide_map }}
+<div class="map" id="footer-map">
+    <div class="map-content">
+        <h3>We cover most of the Bay of Plenty and Waikato.</h3>
+        <a href="/contact" class="button">Contact Us!</a>
+    </div>
+</div>
+{{ section:footer }}
+<script>
+// Connect to Mapbox
+mapboxgl.accessToken = 'pk.eyJ1IjoiamFja21jZGFkZSIsImEiOiI2Tlh0SmVFIn0.3yPPf9bdWH-bf5liR36WyQ';
+
+// Coordinates
+var saratoga = [-73.7846, 43.0831],
+    gloversville = [-74.366744, 43.0469206];
+
+// Mapbox instance
+var map = new mapboxgl.Map({
+    container: 'footer-map',
+    style: 'mapbox://styles/jackmcdade/ciwo2gbxw00622qpk4i35xrhm',
+    center: saratoga,
+    bearing: -15,
+    zoom: 8,
+    interactive: false
+});
+
+map.scrollZoom.disable();
+
+window.onload = function() {
+    // Animate on load
+    map.flyTo({
+        center: gloversville,
+        zoom: 7,
+        bearing: 0,
+        speed: 0.05, // make the flying slow
+        curve: 1, // change the speed at which it zooms out
+
+        easing: function (t) {
+            return t * (2-t) // easeOutQuad
+        }
+    });
+}
+</script>
+{{ /section:footer }}
+
+{{ /unless }}

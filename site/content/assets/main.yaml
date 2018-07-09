@@ -1,0 +1,47 @@
+title: Main Assets
+path: assets
+url: /assets
+assets:
+  img/black-bear-cubs.jpg:
+    title: Black Bear Cubs
+    alt: Some black bears standing up
+  img/coffee-mug.jpg:
+    title: Coffee Mug
+  img/jedi-set.jpg:
+    title: Jedi Set
+    alt: The set of The Return of the Jedi
+  img/me.jpg:
+    title: Me
+    alt: Niles Peppertrout
+  img/redwood-sign.jpg:
+    title: redwood sign
+  img/team/nala.jpg:
+    title: Nala, Bone Manager
+  img/team/richie.jpg:
+    title: Richard Graham
+  img/heat-pump-1.jpg:
+    title: Heat Pump 1
+  img/team/dee.jpg:
+    title: Dee Pascoe, Sales Exec
+    alt: Dee Pascoe, Sales Exec
+  img/team/leigh.jpg:
+    title: Leigh Pope, Accounts Admin
+    alt: Leigh Pope, Accounts Admin
+  img/team/ron.jpg:
+    title: Ron Pope, Director
+    alt: Ron Pope, Director
+  img/team/john2.jpg:
+    title: 'John Sutcliffe, Engineering & Pricing Manager'
+    alt: 'John Sutcliffe, Engineering & Pricing Manager'
+  img/team/david.jpg:
+    title: "David O'Sullivan - Waikato Area Mgr"
+    alt: "David O'Sullivan - Waikato Area Mgr"
+  img/team/shelley.jpg:
+    title: 'Shelley Barnett - Purchasing Mgr'
+    alt: 'Shelley Barnett - Purchasing Mgr'
+  img/team/zak.jpg:
+    title: 'Zak Portland - Production Mgr'
+    alt: 'Zak Portland - Production Mgr'
+  img/team/frank.jpg:
+    title: 'Frank Pope - Managing Director'
+    alt: 'Frank Pope - Managing Director'

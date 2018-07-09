@@ -1,0 +1,64 @@
+<div class="hero compact mb-8">
+    <div class="breadcrumbs">
+        <ul>
+            {{ nav:breadcrumbs include_home="true" scope="crumb" }}
+                <li><a href="{{ url }}">{{ crumb:nav_title or crumb:title }}</a></li>
+                {{ unless last }}<li class="divider">></li>{{ /unless }}
+            {{ /nav:breadcrumbs }}
+        </ul>
+    </div>
+    <div class="content-area standout">
+        <h1>{{ title | widont }}</h1>
+        {{ summary | markdown }}
+    </div>
+</div>
+
+
+<div class="content-area standout text-center mb-8">
+    {{ content }}
+</div>
+
+<div class="tiles mb-8">
+    <div class="tile-pair top odd">
+        <div class="tile text-only">
+            <div class="tile-content">
+              <h2>Customer Service Hours</h2>
+
+              <p>Our customer service team is available to help you, from 7:30am to 4:30pm, Monday to Friday, except public holidays.</p>
+              <br>
+
+              <h2>Contact Information</h2>
+              <p><strong>Phone:</strong> <a href="tel:{{ phone }}">{{ phone }}</a><br>
+              <strong>Email: </strong> <a href="mailto:{{ email }}">{{ email }}</a></p>
+
+              <p><strong>We service the Bay of Plenty and Waikato:-</strong> <br>{{ towns | sort | sentence_list }}.</p>
+            </div>
+        </div>
+        <div class="tile form">
+          <h2>Request an Appointment</h2>
+          
+          {{ form:create formset="contact" redirect="/contact/thanks" }}
+            {{ if errors }}
+                {{ errors }}
+                    <li>{{ value }}</li>
+                {{ /errors }}
+            {{ /if }}
+            
+            <input type="text" name="name" placeholder="Full Name">
+            <input type="text" name="phone" placeholder="Phone Number">
+            <input type="email" name="email" placeholder="Email">
+            <select name="service">
+              <option value="">Select your service...</option>
+              {{ collection:services sort="title:asc" }}
+              <option value="{{ slug }}">{{ title }}</option>
+              {{ /collection:services }}
+              <option value="">Other (please specify below)</option>
+            </select>
+            <textarea name="message" cols="30" rows="10" placeholder="Add a note..."></textarea>
+            <button type="submit" class="button">Submit</button>
+          {{ /form:create }}
+          
+        </div>
+    </div>
+</div>
+{{ partial:creds }}

@@ -1,0 +1,36 @@
+.panel {
+    margin: 120px 0;
+
+    blockquote {
+        max-width: 1040px;
+        margin: 0 auto;
+    }
+}
+
+.panel.side-by-side  {
+    display: flex;
+    align-items: flex-start;
+
+    max-width: 1040px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .panel-header {
+        flex-basis: 180px;
+        margin-right: 60px;
+    }
+
+    .panel-content {
+        flex: 1;
+
+        p {
+            font-size: 18px;
+            line-height: 1.75;
+        }
+    }
+}
+
+.panel.video {
+    padding-left: 60px;
+    padding-right: 60px;
+}

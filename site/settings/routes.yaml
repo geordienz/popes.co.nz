@@ -1,0 +1,10 @@
+routes:
+  /style:
+    layout: style
+  /spring-2018: landing
+collections:
+  services: '/services/{slug}'
+  locations: '/locations/{slug}'
+  blog: '/careers/{slug}'
+
+

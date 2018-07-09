@@ -1,0 +1,55 @@
+<div class="hero naked mb-5">
+    <div class="breadcrumbs">
+        <ul>
+            {{ nav:breadcrumbs include_home="true" scope="crumb" }}
+                <li><a href="{{ url }}">{{ crumb:nav_title or crumb:title }}</a></li>
+                {{ unless last }}<li class="divider">></li>{{ /unless }}
+            {{ /nav:breadcrumbs }}
+        </ul>
+    </div>
+    <div class="content-area">
+        <h1>Our Services</h1>
+        <p class="standout">The electrical industry has many branches. Here at Pope Electrical we concentrate on those services which we feel will best suit our areas of expertise and therefore offer the best service to our customers.</p>
+    </div>
+</div>
+
+<div class="container block-md">
+    <div class="row block-list">
+        {{ collection:services }}
+        <div class="col-md-4">
+            <a class="block-item" href="{{ url }}">
+                <h3>{{ title }}</h3>
+                {{ summary | markdown }}
+            </a>
+        </div>
+        {{ /collection:services }}
+    </div>
+</div>
+
+<div class="quote full mb-8">
+  <!-- <img src="/assets/img/comic-book-woman.png" height="360" width="360" alt="Woman" class="photo"> -->
+    <div class="flexy">
+        <div class="content">
+            <h2>Maia from Tauranga Says...</h2>
+            <p>&ldquo;My experience with Pope Electrical was outstanding! From our tech’s timely arrival, to friendly and knowledgeable service, to an overall quality job. My heat pump was cleaned, sprayed and checked for any possible leaks or other issues, all at a reasonable price. Not sure why I waited so long.&rdquo;</p>
+        </div>
+    </div>
+</div>
+
+<div class="tiles mb-8">
+    <div class="tile-pair">
+        <div class="tile text-only">
+            <div class="tile-content">
+                <h2>We're Certified & Insured</h2>
+                <p>There are a lot of 'cowboys' out there. Make sure you get the very best tradesmen New Zealand can offer by only hiring from a reputable and certified source.</p>
+                <p>Pope Electrical employs the most professional and dedicated electricians and installers in the business.</p>
+            </div>
+        </div>
+        <a class="tile shout flexy" href="/contact">
+            <div class="h1-like">
+                <small>Call (07) 544 3355</small>
+                Schedule a Consultation!
+            </div>
+        </a>
+    </div>
+</div>

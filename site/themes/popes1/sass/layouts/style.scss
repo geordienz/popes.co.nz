@@ -1,0 +1,47 @@
+.style-guide {
+    background: #fafafa;
+    padding: 60px 30px;
+
+    > h1 {
+        color: $dark;
+        font-family: $font_sans;
+    }
+}
+
+.component {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 60px 0;
+    position: relative;
+
+    h6 {
+        color: #999;
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+}
+
+.neverland .nav {
+    display: none;
+}
+
+.fit { object-fit: cover; }
+
+.mix-difference { mix-blend-mode: difference; }
+
+.mix-multiply { mix-blend-mode: multiply; }
+
+.mix-soft-light { mix-blend-mode: soft-light; }
+
+.mix-overlay { mix-blend-mode: overlay; }
+
+.filter-greyscale { filter: grayscale(100%); }
+
+.outline-none { outline: none; }

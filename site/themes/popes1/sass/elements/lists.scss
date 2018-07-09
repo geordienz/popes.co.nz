@@ -1,0 +1,44 @@
+.block-list .block-item {
+    display: block;
+    padding: 24px;
+    margin-bottom: 16px;
+    font-weight: 300;
+    transition: all .15s ease;
+
+    &:hover {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 10px 50px rgba(0,0,0,.1);
+        transform: translateY(-1px);
+    }
+
+    p { color: $dark; }
+}
+
+.file-list {
+    list-style: none;
+    margin: 0 0 24px;
+    padding: 0;
+    font-family: $font_caption;
+    
+    li {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    
+    svg {
+        margin-right: 8px;
+        transition: all .2s ease;
+    }
+    
+    a { 
+        color: $dark;
+        display: flex;
+        align-items: center;
+        &:hover { color: $red; }
+        &:hover svg {
+            margin-right: 12px;
+        }
+    }
+}
