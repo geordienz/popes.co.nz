@@ -34,7 +34,7 @@ team:
     title: Purchasing Mgr
     photo: /assets/img/team/shelley.jpg 
  -  
-    name: Zak  Portland
+    name: Zak Portland
     title: Production Manager
     photo: /assets/img/team/zak.jpg
  -
