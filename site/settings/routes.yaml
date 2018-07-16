@@ -5,6 +5,6 @@ routes:
 collections:
   services: '/services/{slug}'
   locations: '/locations/{slug}'
+  careers: '/careers/{slug}'
   blog: '/careers/{slug}'
-
-
+taxonomies: [ ]

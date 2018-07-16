@@ -27,9 +27,6 @@ assets:
   img/team/leigh.jpg:
     title: Leigh Pope, Accounts Admin
     alt: Leigh Pope, Accounts Admin
-  img/team/ron.jpg:
-    title: Ron Pope, Director
-    alt: Ron Pope, Director
   img/team/john2.jpg:
     title: 'John Sutcliffe, Engineering & Pricing Manager'
     alt: 'John Sutcliffe, Engineering & Pricing Manager'
@@ -45,3 +42,6 @@ assets:
   img/team/frank.jpg:
     title: 'Frank Pope - Managing Director'
     alt: 'Frank Pope - Managing Director'
+  img/team/ron.jpg:
+    title: 'Ron Pope - Director'
+    alt: 'Ron Pope - Director'
