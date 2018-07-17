@@ -9,7 +9,7 @@ id: da35f860-28ee-4bf8-a855-0fd3a8d32332
 ---
 ## Projects
 
-Pope Electrical are heavily involved in many residential housing and commercial projects across the Bay of Plenty and Waikato
+Pope Electrical are heavily involved in many residential housing and commercial projects across the Bay of Plenty and Waikato.
 
 ![The Lakes](/assets/img/pope-van001.jpg)
 
