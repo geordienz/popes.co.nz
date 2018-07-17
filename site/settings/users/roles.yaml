@@ -1,0 +1,39 @@
+0e6a1976-e114-4222-ba26-7c69bb95830e:
+  title: Headitor
+  slug: headitor
+  permissions:
+    - pages:view
+    - pages:edit
+    - pages:create
+    - pages:delete
+    - pages:reorder
+    - collections:blog:view
+    - collections:blog:edit
+    - collections:blog:create
+    - collections:blog:delete
+    - collections:locations:view
+    - collections:locations:edit
+    - collections:locations:create
+    - collections:locations:delete
+    - collections:quotes:view
+    - collections:quotes:edit
+    - collections:quotes:create
+    - collections:quotes:delete
+    - collections:services:view
+    - collections:services:edit
+    - collections:services:create
+    - collections:services:delete
+    - assets:main:view
+    - assets:main:edit
+    - assets:main:create
+    - assets:main:delete
+    - forms
+    - users:view
+    - users:edit
+    - users:create
+    - users:delete
+15637957-85bf-4d8a-9509-63d35f40cd96:
+  title: Admin
+  slug: admin
+  permissions:
+    - super
