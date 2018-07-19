@@ -38,9 +38,13 @@ team:
     title: Production Manager
     photo: /assets/img/team/zak.jpg
  -
+    name: George Grant
+    title: Health & Safety
+    photo: /assets/img/team/george.jpg 
+  -
     name: Nala
     title: Bone Manager
-    photo: /assets/img/team/nala.jpg   
+    photo: /assets/img/team/nala.jpg     
   
 
 id: 3e04358e-3e90-4da5-993b-756a61315bf1
