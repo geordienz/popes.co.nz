@@ -21,9 +21,6 @@ assets:
     title: Richard Graham
   img/heat-pump-1.jpg:
     title: Heat Pump 1
-  img/team/dee.jpg:
-    title: Dee Pascoe, Sales Exec
-    alt: Dee Pascoe, Sales Exec
   img/team/leigh.jpg:
     title: Leigh Pope, Accounts Admin
     alt: Leigh Pope, Accounts Admin
@@ -46,5 +43,8 @@ assets:
     title: 'Ron Pope - Director'
     alt: 'Ron Pope - Director'
   img/team/george.jpg:
-    title: 'George Grant - Health & Safety '
-    alt: 'George Grant - Health & Safety '
+    title: 'George Grant - Health & Safety'
+    alt: 'George Grant - Health & Safety'
+  img/team/dee.jpg:
+    title: 'Dee Pascoe - Sales Consultant'
+    alt: 'Dee Pascoe - Sales Consultant'

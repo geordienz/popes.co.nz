@@ -41,9 +41,9 @@ team:
     name: George Grant
     title: Health & Safety
     photo: /assets/img/team/george.jpg 
-  -
+ -
     name: Nala
-    title: Bone Manager
+    title: Digger
     photo: /assets/img/team/nala.jpg     
   
 
