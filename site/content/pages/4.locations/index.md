@@ -1,5 +1,7 @@
 ---
 title: Locations
+seo:
+  description: 'Operating out of our brand new workshop and office premises at Papamoa Beach, we have ongoing projects around the Bay of Plenty & Waikato.'
 page_title: Just a few of our service locations
 template: locations
 mount: locations

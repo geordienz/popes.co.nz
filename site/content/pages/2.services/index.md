@@ -1,4 +1,8 @@
 title: Services
+seo:
+  description: >
+    Here at Pope Electrical we concentrate on those services which we feel will best suit our areas of
+    expertise and so offer the very best service to our customers
 template: services
 mount: services
 fieldset: default
