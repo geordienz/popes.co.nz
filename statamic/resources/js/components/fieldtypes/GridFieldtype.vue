@@ -44,7 +44,7 @@
 				</div>
 			</div>
 			<div class="list-group-item p-0">
-				<div class="publish-fields p-1">
+				<div class="publish-fields">
 					<div v-for="field in config.fields" :class="stackedFieldClasses(field)">
 							<label class="block">
 								<template v-if="field.display">{{ field.display }}</template>
@@ -54,7 +54,7 @@
 
 							<small class="help-block" v-if="field.instructions" v-html="field.instructions | markdown"></small>
 
-							<component :is="field.type + '-fieldtype'"
+							<component :is="componentName(field.type)"
 							           :name="name + '.' + rowIndex + '.' + field.name"
 							           :data.sync="row[field.name]"
 							           :config="field">

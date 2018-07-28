@@ -70,6 +70,8 @@ class FieldsetJsonController extends CpController
             $fieldset->withTaxonomies();
         }
 
+        event('fieldsets.json.show', $fieldset);
+
         try {
             $array = $fieldset->toPublishArray();
         } catch (\Exception $e) {

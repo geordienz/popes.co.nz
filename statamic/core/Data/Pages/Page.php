@@ -272,13 +272,7 @@ class Page extends Content implements PageContract
         parent::supplement();
 
         $this->setSupplement('is_page', true);
-
-        // If the file isn't found, it's probably temporary content created during a sneak peek.
-        try {
-            $this->setSupplement('last_modified', File::disk('content')->lastModified($this->path()));
-        } catch (FileNotFoundException $e) {
-            $this->setSupplement('last_modified', time());
-        }
+        $this->setSupplement('last_modified', $this->lastModified()->timestamp);
     }
 
     /**

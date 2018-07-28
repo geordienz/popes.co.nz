@@ -163,7 +163,13 @@ class EntryPublisher extends Publisher
         }
 
         if ($order_type === 'number') {
-            return Entry::whereCollection($this->collection)->multisort('order')->last()->order() + 1;
+            $entries = Entry::whereCollection($this->collection);
+
+            if ($entries->isEmpty()) {
+                return 1;
+            }
+
+            return $entries->multisort('order')->last()->order() + 1;
         }
     }
 }

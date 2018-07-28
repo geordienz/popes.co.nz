@@ -95,6 +95,17 @@ class BaseModifiers extends Modifier
     }
 
     /**
+     * Returns the avg of all items in the array, optionally by specific key
+     * @param $value
+     * @param $params
+     * @return mixed
+     */
+    public function avg($value, $params)
+    {
+        return collect($value)->avg(array_get($params, 0, null));
+    }
+
+    /**
      * Returns a focal point as a background-position CSS value.
      *
      * @param $value
@@ -605,8 +616,9 @@ class BaseModifiers extends Modifier
             return $item->$method();
         }
 
-        // If after all is said and done, there's still nothing, just show the original value.
-        return $value;
+        // If after all is said and done and you haven't found
+        // related data, it should not fall back to the original value.
+        return null;
     }
 
     /**
@@ -1097,6 +1109,17 @@ class BaseModifiers extends Modifier
     }
 
     /**
+     * Returns the max of all items in the array, optionally by specific key
+     * @param $value
+     * @param $params
+     * @return mixed
+     */
+    public function max($value, $params)
+    {
+        return collect($value)->max(array_get($params, 0, null));
+    }
+
+    /**
      * Merge an array variable with another array variable
      *
      * @param $value
@@ -1109,6 +1132,17 @@ class BaseModifiers extends Modifier
         $to_merge = (array) array_get($context, $params[0], $context);
 
         return array_merge($value, $to_merge);
+    }
+
+    /**
+     * Returns the min of all items in the array, optionally by specific key
+     * @param $value
+     * @param $params
+     * @return mixed
+     */
+    public function min($value, $params)
+    {
+        return collect($value)->min(array_get($params, 0, null));
     }
 
     /**
@@ -1770,10 +1804,14 @@ class BaseModifiers extends Modifier
     public function table($value, $params)
     {
         $rows = $value;
+
         $parse_markdown = bool(array_get($params, 0));
 
-        $html = '<table>';
+        // Support adding attributes to the table element after the first arg
+        unset($params[0]);
+        $attrs = app('html')->attributes($this->buildAttributesFromParameters($params));
 
+        $html = '<table'.$attrs.'>';
         foreach ($rows as $row) {
             $html .= '<tr>';
             foreach ($row['cells'] as $cell) {
@@ -2029,7 +2067,7 @@ class BaseModifiers extends Modifier
     public function where($value, $params)
     {
         $key = array_get($params, 0);
-        $val = array_get($params, 1);
+        $val = str_bool(array_get($params, 1));
 
         $collection = collect($value)->whereLoose($key, $val);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Statamic;
+namespace Statamic\Outpost;
 
 use Log;
 use GuzzleHttp\Client;
@@ -24,6 +24,11 @@ class Outpost
     const RESPONSE_CACHE_KEY = 'outpost_response';
 
     /**
+     * Where the previous payload will be stored
+     */
+    const PAYLOAD_CACHE_KEY = 'outpost_payload';
+
+    /**
      * @var Illuminate\Http\Request
      */
     private $request;
@@ -37,6 +42,9 @@ class Outpost
      * @var AddonRepository
      */
     private $addonRepo;
+
+    private $message;
+    private $licenses;
 
     /**
      * Create a new Outpost instance
@@ -57,6 +65,10 @@ class Outpost
      */
     public function radio()
     {
+        if ($this->getPreviousPayload() !== $this->getPayload()) {
+            $this->clearCachedResponse();
+        }
+
         if ($this->hasCachedResponse()) {
             return $this->response = $this->getCachedResponse();
         }
@@ -95,8 +107,8 @@ class Outpost
 
     public function areAddonLicensesValid()
     {
-        foreach (array_get($this->response, 'addons', []) as $addon) {
-            if (! $addon['licensed']) {
+        foreach ($this->addonRepo->thirdParty()->addons() as $addon) {
+            if (! $this->isAddonLicenseValid($addon)) {
                 return false;
             }
         }
@@ -106,11 +118,47 @@ class Outpost
 
     public function isAddonLicenseValid(Addon $addon)
     {
-        $addons = collect(array_get($this->response, 'addons', []));
+        if (!$this->isAddonCommercial($addon)) {
+            return true;
+        }
 
-        $match = $addons->where('addon', $addon->id())->first();
+        return $this->doesAddonLicenseExist($addon)
+            && $this->isAddonLicenseOnCorrectDomain($addon);
+    }
+
+    public function isAddonCommercial($addon)
+    {
+        $match = $this->getAddonFromPayload($addon);
+
+        return $match['commercial'];
+    }
+
+    public function doesAddonLicenseExist($addon)
+    {
+        $match = $this->getAddonFromPayload($addon);
 
         return $match['licensed'];
+    }
+
+    public function isAddonLicenseOnCorrectDomain($addon)
+    {
+        $match = $this->getAddonFromPayload($addon);
+
+        return $match['correct_domain'];
+    }
+
+    public function addonDomain($addon)
+    {
+        $match = $this->getAddonFromPayload($addon);
+
+        return $match['domain'];
+    }
+
+    protected function getAddonFromPayload($addon)
+    {
+        $addons = collect(array_get($this->response, 'addons', []));
+
+        return $addons->where('addon', $addon->id())->first();
     }
 
     /**
@@ -120,11 +168,14 @@ class Outpost
      */
     public function isTrialMode()
     {
-        if ($this->isLicenseValid()) {
-            return false;
-        }
-
         return !$this->isOnPublicDomain();
+    }
+
+    public function isReadyForProduction()
+    {
+        return !$this->licenses()->missingKeys()
+            && $this->licenses()->valid()
+            && $this->licenses()->onCorrectDomain();
     }
 
     /**
@@ -144,10 +195,6 @@ class Outpost
      */
     public function isOnCorrectDomain()
     {
-        if (! $this->isOnPublicDomain()) {
-            return true;
-        }
-
         return array_get($this->response, 'correct_domain');
     }
 
@@ -217,6 +264,7 @@ class Outpost
     private function cacheResponse()
     {
         Cache::put(self::RESPONSE_CACHE_KEY, $this->response, 60);
+        Cache::put(self::PAYLOAD_CACHE_KEY, $this->getPayload(), 60);
     }
 
     /**
@@ -227,7 +275,7 @@ class Outpost
     private function hasCachedResponse()
     {
         // No cache? That was simple.
-        if (! Cache::has(self::RESPONSE_CACHE_KEY)) {
+        if (! Cache::has(self::RESPONSE_CACHE_KEY) || ! Cache::has(self::PAYLOAD_CACHE_KEY)) {
             return false;
         }
 
@@ -252,6 +300,7 @@ class Outpost
     public function clearCachedResponse()
     {
         Cache::forget(self::RESPONSE_CACHE_KEY);
+        Cache::forget(self::PAYLOAD_CACHE_KEY);
     }
 
     /**
@@ -267,7 +316,10 @@ class Outpost
             'latest_version'   => STATAMIC_VERSION,
             'update_available' => false,
             'update_count'     => 0,
-            'license_valid'    => false
+            'license_valid'    => false,
+            'domain'           => null,
+            'correct_domain'   => false,
+            'addons'           => [],
         ];
     }
 
@@ -291,6 +343,11 @@ class Outpost
         ];
     }
 
+    private function getPreviousPayload()
+    {
+        return Cache::get(self::PAYLOAD_CACHE_KEY);
+    }
+
     private function getAddonsPayload()
     {
         return $this->addonRepo->thirdParty()->addons()->map(function ($addon) {
@@ -300,5 +357,33 @@ class Outpost
                  'license_key' => $addon->licenseKey(),
              ];
         })->all();
+    }
+
+    public function licensingMessage()
+    {
+        return $this->message()->get();
+    }
+
+    public function licensingMessageStatus()
+    {
+        return $this->message()->status();
+    }
+
+    protected function message()
+    {
+        if ($this->message) {
+            return $this->message;
+        }
+
+        return $this->message = (new Message($this))->build();
+    }
+
+    public function licenses()
+    {
+        if ($this->licenses) {
+            return $this->licenses;
+        }
+
+        return $this->licenses = new Licenses($this->response);
     }
 }

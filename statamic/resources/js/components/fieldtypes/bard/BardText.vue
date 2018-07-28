@@ -239,6 +239,7 @@
 
                 let opts = {
                     toolbar:        { buttons },
+                    buttonLabels:   'fontawesome',
                     autoLink:       this.$parent.config.autolink || false,
                     placeholder:    false,
                     paste:          { forcePlainText: this.$parent.config.force_plain_text, cleanPastedHTML: this.$parent.config.clean_pasted_html },

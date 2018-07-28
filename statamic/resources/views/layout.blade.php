@@ -6,13 +6,24 @@
 
 <body id="statamic" :class="{ 'nav-visible': navVisible, 'overflow-hidden': modalOpen }">
 
-      @if ($is_trial || $is_unlicensed)
-            <div class="site-status-stripe flexy">
+      @if (!$outpost->isReadyForProduction())
+            <div class="site-warning-stripe {{ $outpost->isTrialMode() ? 'status-trial' : '' }} flexy">
                   <div class="fill">
-                        @if ($is_trial) {{ t('trial_mode_badge') }} @elseif ($is_unlicensed){{ t('unlicensed') }} @endif
+                        @if ($outpost->hasSuccessfulResponse() && $outpost->isTrialMode())
+                              <span class="mr-2">{{ t('trial_mode') }}</span>
+                        @endif
+                        <span class="{{ $outpost->isTrialMode() ? 'text-grey' : '' }}">
+                        @if ($outpost->licensingMessage())
+                              {!! $outpost->licensingMessage() !!}
+                        @endif
+                        </span>
                   </div>
-                  <a href="{{ route('licensing') }}" class="btn btn-small mr-2">{{ t('add_license_key')  }}</a>
-                  <a href="https://statamic.com/buy" class="btn btn-primary btn-small" target="_blank">{{ t('buy_now')  }}</a>
+                  <div class="buttons">
+                        @if (request()->route()->getName() !== 'licensing')
+                              <a href="{{ route('licensing') }}" class="btn btn-small mr-1">{{ t('manage') }}</a>
+                        @endif
+                        <a href="https://statamic.com/buy" class="btn btn-primary btn-small" target="_blank">{{ t('buy_now')  }}</a>
+                  </div>
             </div>
       @endif
 

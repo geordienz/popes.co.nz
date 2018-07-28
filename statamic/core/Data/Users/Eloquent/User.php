@@ -41,8 +41,10 @@ class User extends FileUser
 
     private function updateRoles()
     {
-        $roles = collect($this->get('roles', []));
-        $this->remove('roles');
+        $roles = $this->roles()->map(function ($role) {
+            return $role->uuid();
+        });
+
         (new Roles($this))->sync($roles);
     }
 
@@ -92,6 +94,10 @@ class User extends FileUser
 
     public function set($key, $value)
     {
+        if ($key === 'roles') {
+            return $this->setRoles($value);
+        }
+
         $columns = \Schema::getColumnListing($this->model()->getTable());
 
         if (array_has(array_flip($columns), $key)) {
@@ -214,6 +220,13 @@ class User extends FileUser
         });
 
         return $this->roles = $roles;
+    }
+
+    protected function setRoles($roles)
+    {
+        $this->roles = collect($roles)->map(function ($role) {
+            return Role::find($role);
+        });
     }
 
     public function lastModified()

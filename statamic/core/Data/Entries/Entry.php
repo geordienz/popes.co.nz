@@ -293,6 +293,11 @@ class Entry extends Content implements EntryContract
      */
     protected function getFieldset()
     {
+        return $this->getBaseFieldset()->withTaxonomies();
+    }
+
+    protected function getBaseFieldset()
+    {
         // First check the front matter
         if ($fieldset = $this->getWithCascade('fieldset')) {
             return Fieldset::get($fieldset);
@@ -307,22 +312,6 @@ class Entry extends Content implements EntryContract
 
         // Finally the default fieldset
         return Fieldset::get(Config::get('theming.default_fieldset'));
-    }
-
-    /**
-     * Get the last modified time of the entry.
-     *
-     * @return \Carbon\Carbon
-     */
-    public function lastModified()
-    {
-        // Entries with no files have been created programmatically (eg. for a sneak peek)
-        // and haven't been saved yet. We'll use the current time in that case.
-        $timestamp = File::disk('content')->exists($path = $this->path())
-            ? File::disk('content')->lastModified($path)
-            : time();
-
-        return Carbon::createFromTimestamp($timestamp);
     }
 
     /**

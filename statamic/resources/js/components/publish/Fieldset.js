@@ -2,6 +2,7 @@ class Fieldset {
 
     constructor(fieldset) {
         this.fieldset = fieldset;
+        this.name = fieldset.name;
         this.sections = this.parseSections(fieldset.sections);
         this.metaFields = [];
     }

@@ -128,6 +128,10 @@ export default {
         },
 
         setExpanded(set, all) {
+            // Fields that depend on their container size are
+            // watching for the `resize` event. Let's give it to them.
+            window.dispatchEvent(new Event('resize'));
+
             // The 'all' variable will be true if the set was expanded due to a expandAll()
             // method call. In that case, we don't want to collapse the other sets.
             if (all) return;

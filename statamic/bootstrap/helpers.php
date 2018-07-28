@@ -83,6 +83,22 @@ function bool_str($bool)
 }
 
 /**
+ * Casts strings "true" and "false" as proper bools
+ *
+ * @param string $string
+ * @return mixed
+ */
+function str_bool($string) {
+    if (strtolower($string) === 'true') {
+        return true;
+    } elseif (strtolower($string) === 'false') {
+        return false;
+    }
+
+    return $string;
+}
+
+/**
  * Gets or sets the site locale
  *
  * @param string|null $locale

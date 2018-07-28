@@ -65,6 +65,8 @@ class Manager
 
     public function load()
     {
+        $this->waitForUpdateToComplete();
+
         $this->loader->load();
     }
 
@@ -96,5 +98,25 @@ class Manager
         }
 
         return $this->stache->buildConfig() !== Cache::get('stache::config');
+    }
+
+    protected function waitForUpdateToComplete()
+    {
+        $start = time();
+
+        while ($this->isLocked()) {
+            if (time() - $start >= 10) {
+                throw new TimeoutException;
+            }
+
+            sleep(1);
+        }
+    }
+
+    protected function isLocked()
+    {
+        $block = app()->runningInConsole();
+
+        return ! $this->stache->lock()->acquire($block);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Statamic\Data\Content;
 
+use Carbon\Carbon;
 use Statamic\API\Config;
 use Statamic\API\File;
 use Statamic\API\Helper;
@@ -13,6 +14,8 @@ use Statamic\Contracts\Data\Pages\Page;
 use Statamic\Contracts\Data\Taxonomies\Term;
 use Statamic\Data\Data;
 use League\Flysystem\FileNotFoundException;
+use Statamic\Events\Data\ContentSaved;
+use Statamic\Events\Data\ContentDeleted;
 use Statamic\Exceptions\UuidExistsException;
 use Statamic\Contracts\Data\Content\Content as ContentContract;
 
@@ -164,7 +167,7 @@ abstract class Content extends Data implements ContentContract
      */
     public function absoluteUrl()
     {
-        return URL::makeAbsolute(URL::prependSiteUrl($this->uri(), $this->locale()));
+        return URL::makeAbsolute($this->uri(), $this->locale());
     }
 
     /**
@@ -213,6 +216,9 @@ abstract class Content extends Data implements ContentContract
             return $this;
         }
 
+        // If file was moved, set the old path.
+        $oldPath = $this->path() !== $this->originalPath() ? $this->originalPath() : null;
+
         // Write files to disk. One for each locale stored in this data.
         $this->writeFiles();
 
@@ -224,7 +230,10 @@ abstract class Content extends Data implements ContentContract
         $this->syncOriginal();
 
         // Setup event for whoever wants to know about the saved content.
-        event('content.saved', [$this, $original]);
+        $eventClass = 'Statamic\Events\Data\\' . ucfirst($this->contentType()) . 'Saved';
+        event(new $eventClass($this, $original, $oldPath));
+        event('content.saved', [$this, $original]); // Deprecated! Please listen on ContentSaved event instead!
+        event(new ContentSaved($this, $original, $oldPath));
 
         return $this;
     }
@@ -337,7 +346,9 @@ abstract class Content extends Data implements ContentContract
     public function fieldset($fieldset = null)
     {
         if (is_null($fieldset)) {
-            return $this->getFieldset();
+            $fieldset = $this->getFieldset()->locale($this->locale());
+            event(new \Statamic\Events\Data\FindingFieldset($fieldset, $this->contentType(), $this));
+            return $fieldset;
         }
 
         $this->set('fieldset', $fieldset);
@@ -397,6 +408,7 @@ abstract class Content extends Data implements ContentContract
         // Whoever wants to know about it can do so now.
         $event_class = 'Statamic\Events\Data\\' . ucfirst($this->contentType()) . 'Deleted';
         event(new $event_class($this->id(), $paths->all()));
+        event(new ContentDeleted($this->id(), $paths->all()));
     }
 
     /**
@@ -448,5 +460,21 @@ abstract class Content extends Data implements ContentContract
         }
 
         return $array;
+    }
+
+    /**
+     * Get the last modified time of the content
+     *
+     * @return \Carbon\Carbon
+     */
+    public function lastModified()
+    {
+        // Content with no files have been created programmatically (eg. for a sneak peek)
+        // and haven't been saved yet. We'll use the current time in that case.
+        $timestamp = File::disk('content')->exists($path = $this->path())
+            ? File::disk('content')->lastModified($path)
+            : time();
+
+        return Carbon::createFromTimestamp($timestamp);
     }
 }

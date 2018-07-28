@@ -1,8 +1,7 @@
 <?php
 
-namespace Statamic\Http\Middleware;
+namespace Statamic\Stache\Listeners;
 
-use Closure;
 use Statamic\API\Str;
 use Statamic\Stache\Stache;
 use Statamic\Stache\Persister;
@@ -10,26 +9,7 @@ use Statamic\Providers\StacheServiceProvider;
 
 class PersistStache
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-    {
-        return $next($request);
-    }
-
-    /**
-     * Perform any final actions for the request lifecycle.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Symfony\Component\HttpFoundation\Response  $response
-     * @return void
-     */
-    public function terminate($request, $response)
+    public function handle($event)
     {
         // If the Stache was never loaded, don't bother doing anything.
         if (! $this->stacheLoaded()) {

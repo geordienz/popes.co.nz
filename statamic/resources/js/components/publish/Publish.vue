@@ -32,7 +32,7 @@
 
                     <user-options v-if="isUser && !isNew" :username="slug" :status="contentData.status" class="mr-2"></user-options>
 
-                    <div class="btn-group my-1 mr-2" v-if="$parent.isPublishPage">
+                    <div class="btn-group my-1 mr-2" v-if="$parent.isPublishPage && url">
                         <template v-if="staticCachingEnabled">
                             <a href="{{ url }}" target="_blank" class="btn">{{ translate('cp.visit_url') }}</a>
                         </template>
@@ -50,9 +50,9 @@
 
                     <div class="btn-group btn-group-primary my-1" v-if="canEdit">
 
-                        <button v-if="! continuing && ! anothering" type="button" class="btn btn-primary" @click="publishWithoutContinuing" :disabled="saving">{{ translate('cp.save') }}</button>
-                        <button v-if="continuing" type="button" class="btn btn-primary" @click="publishAndContinue" :disabled="saving">{{ translate('cp.save_and_continue') }}</button>
-                        <button v-if="anothering" type="button" class="btn btn-primary" @click="publishAndAnother" :disabled="saving">{{ translate('cp.save_and_another') }}</button>
+                        <button v-if="publishType === 'save'" type="button" class="btn btn-primary" @click="publishWithoutContinuing" :disabled="saving">{{ translate('cp.save') }}</button>
+                        <button v-if="publishType === 'continue'" type="button" class="btn btn-primary" @click="publishAndContinue" :disabled="saving">{{ translate('cp.save_and_continue') }}</button>
+                        <button v-if="allowSaveAndAddAnother && publishType === 'another'" type="button" class="btn btn-primary" @click="publishAndAnother" :disabled="saving">{{ translate('cp.save_and_another') }}</button>
 
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" :disabled="saving">
                             <span class="caret"></span>
@@ -60,9 +60,9 @@
                         </button>
 
                         <ul class="dropdown-menu">
-                            <li v-if="! continuing"><a id="publish-continue" @click="publishAndContinue">{{ translate('cp.save_and_continue') }}</a></li>
-                            <li v-if="continuing || anothering"><a @click="publishWithoutContinuing">{{ translate('cp.save') }}</a></li>
-                            <li v-if="! anothering"><a @click="publishAndAnother">{{ translate('cp.save_and_another') }}</a></li>
+                            <li v-if="publishType !== 'continue'"><a id="publish-continue" @click="publishAndContinue">{{ translate('cp.save_and_continue') }}</a></li>
+                            <li v-if="publishType !== 'save'"><a @click="publishWithoutContinuing">{{ translate('cp.save') }}</a></li>
+                            <li v-if="allowSaveAndAddAnother && publishType !== 'another'"><a @click="publishAndAnother">{{ translate('cp.save_and_another') }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -91,6 +91,8 @@
                             :hidden-fields="hiddenFields"
                             :data.sync="formData.fields"
                             :autofocus="i === 0"
+                            :meta-fields="metaFields"
+                            :env="extra.env"
                         ></publish-section>
                     </div>
 
@@ -174,6 +176,18 @@ export default {
         readOnly: {
             type: Boolean,
             default: false
+        },
+        updateTitleOnSave: {
+            type: Boolean,
+            default: true
+        },
+        metaFields: {
+            type: Boolean,
+            default: true
+        },
+        allowSaveAndAddAnother: {
+            type: Boolean,
+            default: false
         }
     },
 
@@ -189,8 +203,7 @@ export default {
             iframeLoading: false,
             previewRequestQueued: false,
             errors: [],
-            continuing: false,
-            anothering: false,
+            publishType: 'save',
             staticCachingEnabled: window.Statamic.staticCachingEnabled,
             activeSection: null
         };
@@ -304,7 +317,7 @@ export default {
         },
 
         shouldShowSidebar() {
-            if (this.sidebarSection.fields.length == 0 || this.$root.isPreviewing || this.$root.windowWidth < 1400) return false;
+            if (this.sidebarSection.fields.length == 0 || this.$root.isPreviewing || this.$root.windowWidth < 1366) return false;
 
             return true;
         },
@@ -365,7 +378,7 @@ export default {
 
         initFormData: function() {
             this.formData = {
-                fieldset: this.fieldsetName,
+                fieldset: null, // overridden in initFieldset
                 new: this.isNew,
                 type: this.contentType,
                 uuid: this.uuid,
@@ -386,12 +399,12 @@ export default {
             self.saving = true;
             self.errors = [];
 
-            if (this.isSettings) {
+            if (this.submitUrl) {
+                var url = this.submitUrl;
+            } else if (this.isSettings) {
                 var url = cp_url('settings/') + this.slug;
             } else if (this.isAddon) {
                 var url = cp_url('addons/') + this.extra.addon + '/settings';
-            } else {
-                var url = this.submitUrl;
             }
 
             var request = this.$http.post(url, this.filteredFormData)
@@ -401,14 +414,14 @@ export default {
 
                 if (data.success) {
                     this.$dispatch('changesMade', false);
-                    if (! this.formData.continue || this.isNew || this.formData.another) {
+                    if (data.redirect && (this.publishType !== 'continue' || this.isNew)) {
                         window.location = data.redirect;
                         return;
                     }
-                    this.continuing = true;
-                    this.formData.continue = null;
                     this.saving = false;
-                    this.title = (this.isUser) ? this.formData.fields.username : this.formData.fields.title;
+                    if (this.updateTitleOnSave) {
+                        this.title = (this.isUser) ? this.formData.fields.username : this.formData.fields.title;
+                    }
                     this.$dispatch('setFlashSuccess', data.message, { timeout: 1500 });
                 } else {
                     this.$dispatch('setFlashError', translate('cp.error'));
@@ -430,27 +443,28 @@ export default {
         },
 
         publishWithoutContinuing: function () {
-            localStorage.setItem('statamic.publish.continue', false);
-            localStorage.setItem('statamic.publish.another', false);
+            this.publishType = 'save';
+            localStorage.setItem('statamic.publish.type', 'save');
+            Vue.delete(this.formData, 'continue');
+            Vue.delete(this.formData, 'another');
 
             this.publish();
         },
 
         publishAndContinue: function() {
-            this.continuing = true;
-            this.anothering = false;
+            this.publishType = 'continue';
+            localStorage.setItem('statamic.publish.type', 'continue');
             this.formData.continue = true;
-            localStorage.setItem('statamic.publish.continue', true);
-            localStorage.setItem('statamic.publish.another', false);
+            Vue.delete(this.formData, 'another');
 
             this.publish();
         },
 
         publishAndAnother: function() {
-            this.anothering = true;
+            this.publishType = 'another';
+            localStorage.setItem('statamic.publish.type', 'another');
             this.formData.another = true;
-            localStorage.setItem('statamic.publish.continue', false);
-            localStorage.setItem('statamic.publish.another', true);
+            Vue.delete(this.formData, 'continue');
 
             this.publish();
         },
@@ -589,31 +603,44 @@ export default {
             this.isSlugModified = (this.$slugify(title) !== slug);
         },
 
-        getInitialContinue: function () {
-            return localStorage.getItem('statamic.publish.continue') === 'true';
-        },
+        getInitialPublishType: function () {
+            let type = localStorage.getItem('statamic.publish.type') || 'save';
 
-        getInitialAnother: function () {
-            return localStorage.getItem('statamic.publish.another') === 'true';
+            if (!this.allowSaveAndAddAnother && type === 'another') {
+                type = 'save';
+            }
+
+            return type;
         },
 
         getFieldset() {
+            if (Statamic.Publish.fieldset) {
+                this.initFieldset(Statamic.Publish.fieldset);
+                return;
+            }
+
             var params = {};
             var url = cp_url('fieldsets-json/') + this.fieldsetName;
 
             params.locale = this.locale;
             params.taxonomies = this.isEntry;
             this.$http.get(url, params).success(function(data) {
-                this.fieldset = new Fieldset(data)
-                    .showDate(this.shouldShowDate);
-
-                if (this.isPage || this.isEntry || this.isTaxonomy) {
-                    this.fieldset.showSlug(!this.isHomePage).prependTitle().prependMeta();
-                }
-
-                this.activeSection = this.fieldset.sections[0].handle;
-                this.initConditions();
+                this.initFieldset(data);
             });
+        },
+
+        initFieldset(data) {
+            this.fieldset = new Fieldset(data)
+                .showDate(this.shouldShowDate);
+
+            if (this.isPage || this.isEntry || this.isTaxonomy) {
+                this.fieldset.showSlug(!this.isHomePage).prependTitle().prependMeta();
+            }
+
+            this.activeSection = this.fieldset.sections[0].handle;
+            this.initConditions();
+
+            this.formData.fieldset = this.fieldsetName || this.fieldset.name;
         },
 
         sectionHasError(handle) {
@@ -630,8 +657,12 @@ export default {
         shouldShowSidebar(shouldShow) {
             // If the sidebar hidden, and it was the active tab, when we show the sidebar
             // we won't have an active tab anymore, so we'll just activate the first.
+            // Also, if the first one *is* the sidebar, activate the second one.
             if (shouldShow && this.activeSection === 'sidebar') {
                 this.activeSection = this.sections[0].handle;
+                if (this.activeSection === 'sidebar') {
+                    this.activeSection = this.sections[1].handle;
+                }
             }
         },
 
@@ -653,11 +684,15 @@ export default {
             this.locales = JSON.parse(this.locales);
         }
 
-        this.continuing = this.getInitialContinue();
-        this.anothering = this.getInitialAnother();
-
         this.initFormData();
         this.getFieldset();
+
+        this.publishType = this.getInitialPublishType();
+        if (this.publishType === 'continue') {
+            this.formData.continue = true;
+        } else if (this.publishType === 'another') {
+            this.formData.another = true;
+        }
 
         this.syncTitleAndSlugFields();
 
@@ -693,9 +728,6 @@ export default {
 
             Mousetrap.bindGlobal('meta+enter', function(e) {
                 e.preventDefault();
-                if (self.anothering) {
-                    self.publishAndAnother();
-                }
                 self.publish();
             });
         }

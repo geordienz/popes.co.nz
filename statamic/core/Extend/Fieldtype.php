@@ -235,7 +235,13 @@ class Fieldtype implements FieldtypeInterface
 
     public function getConfigFieldset()
     {
-        $fields = array_get($this->getMeta(), 'fieldtype_fields', []);
+        $fieldsKey = 'fieldtype_fields';
+
+        if (!$this->isPrimaryFieldtype()) {
+            $fieldsKey = snake_case($this->getClassNameWithoutSuffix()) . '_' . $fieldsKey;
+        }
+
+        $fields = array_get($this->getMeta(), $fieldsKey, []);
 
         $fieldset = Fieldset::create('config', compact('fields'));
         $fieldset->type('fieldtype');

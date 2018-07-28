@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Statamic\API\Collection;
 use Statamic\API\Entry;
+use Statamic\Events\Data\PublishFieldsetFound;
 
 class PublishEntryController extends PublishController
 {
@@ -34,6 +35,7 @@ class PublishEntryController extends PublishController
         }
 
         $fieldset = $collection->fieldset();
+        event(new PublishFieldsetFound($fieldset, 'entry'));
 
         $data = $this->addBlankFields($fieldset);
         $data['slug'] = null; // For Vue. Slug might not've been in the fieldset.
@@ -49,7 +51,7 @@ class PublishEntryController extends PublishController
             'is_new'            => true,
             'content_data'      => $data,
             'content_type'      => 'entry',
-            'fieldset'          => $fieldset->name(),
+            'fieldset'          => $fieldset->toPublishArray(),
             'title'             => $this->title($fieldset),
             'uuid'              => null,
             'uri'               => null,
@@ -93,8 +95,11 @@ class PublishEntryController extends PublishController
             'order_type'    => $entry->orderType()
         ];
 
-        $data = $this->addBlankFields($entry->fieldset(), $entry->processedData());
-        $data['slug'] = $slug;
+        $fieldset = $entry->fieldset();
+        event(new PublishFieldsetFound($fieldset, 'entry', $entry));
+
+        $data = $this->addBlankFields($fieldset, $entry->processedData());
+        $data['slug'] = $entry->slug();
 
         if ($entry->orderType() === 'date') {
             // Get the datetime without milliseconds
@@ -110,7 +115,7 @@ class PublishEntryController extends PublishController
             'is_new'             => false,
             'content_data'       => $data,
             'content_type'       => 'entry',
-            'fieldset'           => $entry->fieldset()->name(),
+            'fieldset'           => $fieldset->toPublishArray(),
             'title'              => array_get($data, 'title', $slug),
             'uuid'               => $id,
             'uri'                => $entry->uri(),
@@ -120,7 +125,7 @@ class PublishEntryController extends PublishController
             'locale'             => $locale,
             'is_default_locale'  => $entry->isDefaultLocale(),
             'locales'            => $this->getLocales($id),
-            'suggestions'        => $this->getSuggestions($entry->fieldset()),
+            'suggestions'        => $this->getSuggestions($fieldset),
         ]);
     }
 

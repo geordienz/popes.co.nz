@@ -1,7 +1,5 @@
 import Vue from 'vue';
-import VueResource from 'vue-resource';
-
-Vue.use(VueResource);
+Vue.use(require('vue-resource'));
 
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.querySelector('#csrf-token').getAttribute('value');
 

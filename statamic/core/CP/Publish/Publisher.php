@@ -247,7 +247,7 @@ abstract class Publisher
      */
     protected function validateSubmission($submission)
     {
-        $validation = new ValidationBuilder($this->fields, $this->content->fieldset());
+        $validation = new ValidationBuilder($this->fields, $this->fieldset ?: $this->content->fieldset());
         $validation->build();
 
         $this->validate($validation->rules(), [], $validation->attributes());

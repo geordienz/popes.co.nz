@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Statamic\API\Page;
 use Statamic\API\URL;
 use Statamic\API\Fieldset;
+use Statamic\Events\Data\PublishFieldsetFound;
 
 /**
  * @todo  For the methods `create` and `edit`, not sure which is much cleaner,
@@ -29,9 +30,10 @@ class PublishPageController extends PublishController
             return redirect(route('pages'))->withErrors("Page [$url] doesn't exist.");
         }
 
-        $fieldset = $request->query('fieldset', $parent->fieldset()->name());
+        $fieldset = Fieldset::get($request->query('fieldset', $parent->fieldset()->name()));
+        event(new PublishFieldsetFound($fieldset, 'page'));
 
-        $data = $this->addBlankFields(Fieldset::get($fieldset));
+        $data = $this->addBlankFields($fieldset);
         $data['slug'] = null;
 
         return view('publish', [
@@ -47,9 +49,9 @@ class PublishPageController extends PublishController
             'is_default_locale' => true,
             'locale'            => $this->locale($request),
             'locales'           => $this->getLocales(),
-            'fieldset'          => $fieldset,
+            'fieldset'          => $fieldset->toPublishArray(),
             'content_data'      => $data,
-            'suggestions'       => $this->getSuggestions(Fieldset::get($fieldset)),
+            'suggestions'       => $this->getSuggestions($fieldset),
         ]);
     }
 
@@ -70,14 +72,16 @@ class PublishPageController extends PublishController
 
         $locale = $this->locale($request);
         $page   = $page->in($locale)->get();
-        $data   = $this->addBlankFields($page->fieldset(), $page->processedData());
+        $fieldset = $page->fieldset();
+        event(new PublishFieldsetFound($fieldset, 'page', $page));
+        $data   = $this->addBlankFields($fieldset, $page->processedData());
         $data['slug'] = $page->slug();
 
         return view('publish', [
             'is_new'            => false,
             'content_data'      => $data,
             'content_type'      => 'page',
-            'fieldset'          => $page->fieldset()->name(),
+            'fieldset'          => $fieldset->toPublishArray(),
             'title'             => array_get($data, 'title', $url),
             'uuid'              => $page->id(),
             'uri'               => $page->uri(),
@@ -91,7 +95,7 @@ class PublishPageController extends PublishController
                 'is_home'    => $page->uri() === '/',
                 'parent_url' => URL::parent($url)
             ],
-            'suggestions' => $this->getSuggestions($page->fieldset()),
+            'suggestions' => $this->getSuggestions($fieldset),
         ]);
     }
 

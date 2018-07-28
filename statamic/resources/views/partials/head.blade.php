@@ -5,7 +5,6 @@
 <meta name="robots" content="noindex,nofollow">
 <title>{{ $title or '' }} | Statamic</title>
 <link href="{{ cp_resource_url('css/cp.css') }}?v={{ STATAMIC_VERSION }}" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i" rel="stylesheet">
 @if (\Statamic\API\File::exists('site/helpers/cp/override.css'))
     <link href="{{ resource_url('helpers/cp/override.css') }}" rel="stylesheet" />
 @endif

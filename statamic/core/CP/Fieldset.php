@@ -9,6 +9,8 @@ use Statamic\API\Taxonomy;
 use Statamic\API\YAML;
 use Statamic\API\Fieldset as FieldsetAPI;
 use Statamic\Contracts\CP\Fieldset as FieldsetContract;
+use Statamic\Events\Data\FieldsetDeleted;
+use Statamic\Events\Data\FieldsetSaved;
 
 /**
  * A fieldset
@@ -88,6 +90,8 @@ class Fieldset implements FieldsetContract
         }
 
         $this->locale = $locale;
+
+        return $this;
     }
 
     /**
@@ -319,6 +323,9 @@ class Fieldset implements FieldsetContract
         $yaml = YAML::dump($contents);
 
         File::put($this->path(), $yaml);
+
+        // Whoever wants to know about it can do so now.
+        event(new FieldsetSaved($this));
     }
 
     private function shouldOnlySaveFields()
@@ -392,6 +399,9 @@ class Fieldset implements FieldsetContract
     public function delete()
     {
         File::delete($this->path());
+
+        // Whoever wants to know about it can do so now.
+        event(new FieldsetDeleted($this));
     }
 
     /**
@@ -578,6 +588,7 @@ class Fieldset implements FieldsetContract
         })->all();
 
         $array = array_merge($this->contents(), [
+            'name' => $this->name(),
             'sections' => $sections
         ]);
 
@@ -622,11 +633,11 @@ class Fieldset implements FieldsetContract
     public function preProcessFields($fields)
     {
         return collect($fields)->map(function ($config, $name) {
-            return $this->preProcessField($config) + [
+            return array_merge($this->preProcessField($config), [
                 'display' => $this->getDisplayText($name, $config),
                 'instructions' => $this->getInstructionsText($name, $config),
                 'required' => Str::contains(array_get($config, 'validate'), 'required'),
-            ];
+            ]);
         })->all();
     }
 

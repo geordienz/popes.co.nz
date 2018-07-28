@@ -26,6 +26,12 @@
 .icon-status-live {
 	background: $color_green;
 }
+.icon-status-error {
+	background: $color_red;
+}
+.icon-status-warning {
+    @apply .bg-yellow-dark;
+}
 
 .icon-large {
     font-size: 42px;

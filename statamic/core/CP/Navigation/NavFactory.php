@@ -8,7 +8,7 @@ use Statamic\API\Taxonomy;
 use Statamic\API\User;
 use Statamic\API\Folder;
 use Statamic\API\GlobalSet;
-use Statamic\Outpost as StatamicOutpost;
+use Statamic\Outpost\Outpost as StatamicOutpost;
 
 class NavFactory
 {

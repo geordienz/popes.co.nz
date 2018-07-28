@@ -12,6 +12,7 @@ use Statamic\API\Config;
 use Statamic\API\Helper;
 use Statamic\Config\Globals;
 use Statamic\Routing\ExceptionRoute;
+use Statamic\Contracts\Data\LocalizedData;
 
 /**
  * Controls the rendering of templates in views
@@ -98,6 +99,7 @@ class View
         $data = (is_object($this->data)) ? $this->data->toArray() : $this->data;
         $this->store->merge($data);
         $this->store->mergeInto('page', $data);
+        $this->store->merge(['page_object' => $this->data instanceof LocalizedData ? $this->data->get() : $this->data]);
     }
 
     /**

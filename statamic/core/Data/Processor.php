@@ -16,7 +16,7 @@ class Processor
     {
         $this->fieldset = $fieldset;
 
-        $this->fieldtypes = collect($fieldset->withTaxonomies()->fieldtypes())->keyBy(function ($fieldtype) {
+        $this->fieldtypes = collect($fieldset->fieldtypes())->keyBy(function ($fieldtype) {
             return $fieldtype->getName();
         });
     }

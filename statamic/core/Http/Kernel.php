@@ -19,7 +19,6 @@ class Kernel extends HttpKernel
         'Illuminate\Session\Middleware\StartSession',
         'Illuminate\View\Middleware\ShareErrorsFromSession',
         'Statamic\Http\Middleware\VerifyCsrfToken',
-        'Statamic\Http\Middleware\PersistStache',
     ];
 
     /**

@@ -82,14 +82,11 @@ class FileCacher extends AbstractCacher
      */
     public function invalidateUrl($url)
     {
-        if (! $key = $this->getUrls()->flip()->get($url)) {
-            // URL doesn't exist, nothing to invalidate.
-            return;
-        }
-
         $this->writer->delete($this->getFilePath($url));
 
-        $this->forgetUrl($key);
+        if ($key = $this->getUrls()->flip()->get($url)) {
+            $this->forgetUrl($key);
+        }
     }
 
     public function getCachePaths()

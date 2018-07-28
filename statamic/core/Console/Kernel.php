@@ -105,7 +105,7 @@ class Kernel extends ConsoleKernel
     private function getCommands()
     {
         foreach ($this->repo()->commands()->classes() as $class) {
-            $this->addon_commands[] = new $class;
+            $this->addon_commands[] = $this->app->make($class);
         }
 
         return $this->addon_commands;

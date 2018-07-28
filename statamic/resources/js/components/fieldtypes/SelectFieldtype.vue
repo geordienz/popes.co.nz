@@ -33,7 +33,8 @@ export default {
     computed: {
         label: function() {
             // type juggle to make sure integers are treated as thus.
-            var val = _.isNumber(this.data) ? parseInt(this.data) : this.data;
+            const parsed = parseInt(this.data);
+            const val = isNaN(parsed) ? this.data : parsed;
 
             var option = _.findWhere(this.selectOptions, {value: val});
 

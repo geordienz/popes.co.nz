@@ -31,7 +31,7 @@
         "funkjedi/composer-include-files": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "symfony/yaml": "^3.0",
-        "marbles/sitemap": "*@dev"
+        "symfony/lock": "^3.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
