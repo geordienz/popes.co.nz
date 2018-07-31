@@ -32,9 +32,18 @@
   h1 { font-size: 80px; }
 }
 
+
 .hero.naked {
     background: #fff;
     color: $dark;
+    text-align: center;
+    .content-area { max-width: 960px; }
+}
+
+.hero.naked2 {
+    background: #fff;
+    color: $dark;
+    min-height: 0px;
     text-align: center;
     .content-area { max-width: 960px; }
 }

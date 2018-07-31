@@ -14,7 +14,7 @@
             {{ theme:output src="img/logo.svg" }}
         </a>
     </div>
-    <ul class="main-nav">
+    <ul class="main-nav z-50">
         {{ nav from="/" hide_from_nav:isnt="true" scope="page" }}
             <li {{ if slug == "services" || slug == "locations"}} class="has-dropdown"{{ /if }}>
                 <a href="{{ url }}" class="{{ if is_current || is_parent }}active{{ /if }}">
