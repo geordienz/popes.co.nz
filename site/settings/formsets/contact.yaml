@@ -18,12 +18,13 @@ columns:
   - message
 email:
   - 
-    to: info@popes.co.nz
-    from: frank@popes.co.nz
-    reply_to: '{{ email }}'
-    subject: Pope Electrical Heatpump Service
+    to: '{{ email }}'
+    from: info@popes.co.nz
+    reply_to: info@popes.co.nz
+    subject: 'Pope Electrical Service Request re: {{ service }}'
     automagic: true
   - 
     to: info@popes.co.nz
     reply_to: '{{ email }}'
-    subject: Pope Electrical Call-out Request
+    subject: 'Pope Electrical Service Request re: {{ service }}'
+    from: jobs@popes.co.nz
