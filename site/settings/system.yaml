@@ -1,10 +1,10 @@
 license_key: e68e91cb-8828-4f57-a7d6-2a5d489444c5
 locales:
   en:
+    full: en_NZ
     name: English
-    full: en_US
     url: /
-timezone: UTC
+timezone: Pacific/Auckland
 date_format: F jS, Y
 default_extension: md
 filesystems:
