@@ -1,7 +1,3 @@
 driver: mail
 from_email: info@popes.co.nz
 from_name: Pope Electrical
-port: 587
-encryption: tls
-username: ""
-password: ""
