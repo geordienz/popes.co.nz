@@ -4,3 +4,4 @@ email: george@popes.co.nz
 first_name: george
 last_name: at popes
 id: a29eaf51-23d4-4a87-81c5-c1278b1ea977
+password_hash: $2y$10$wWWErYEkRTl3sXH.L2072uFu5olXfrnx1a5JzzkEaCdtQtdsqFR6m

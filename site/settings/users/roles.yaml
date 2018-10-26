@@ -2,6 +2,7 @@
   title: Headitor
   slug: headitor
   permissions:
+    - cp:access
     - pages:view
     - pages:edit
     - pages:create
