@@ -167,7 +167,10 @@ abstract class Content extends Data implements ContentContract
      */
     public function absoluteUrl()
     {
-        return URL::makeAbsolute($this->uri(), $this->locale());
+        return URL::makeAbsolute(
+            URL::prependSiteUrl($this->uri(), $this->locale()),
+            $this->locale()
+        );
     }
 
     /**

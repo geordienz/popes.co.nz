@@ -23,7 +23,7 @@ class AssetMoved extends Event implements DataEvent
      * @param Asset $asset
      * @param string $oldPath
      */
-    public function __construct(Asset $asset, string $oldPath)
+    public function __construct(Asset $asset, $oldPath)
     {
         $this->asset = $asset;
         $this->oldPath = $oldPath;

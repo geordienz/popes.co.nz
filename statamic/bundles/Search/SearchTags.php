@@ -42,7 +42,7 @@ class SearchTags extends CollectionTags
      */
     public function results()
     {
-        if (! $this->query = request()->query($this->get('param', 'q'))) {
+        if (! $this->query = $this->getQuery()) {
             return $this->parseNoResults();
         }
 
@@ -85,6 +85,13 @@ class SearchTags extends CollectionTags
     protected function getSortOrder()
     {
         return $this->get('sort', 'search_score:desc');
+    }
+
+    private function getQuery()
+    {
+         $query = request()->query($this->get('param', 'q'));
+
+         return trim($query);
     }
 
     /**

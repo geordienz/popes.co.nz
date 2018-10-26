@@ -45,7 +45,7 @@ class PublishPageController extends PublishController
             'extra'             => ['parent_url' => $url],
             'is_new'            => true,
             'content_type'      => 'page',
-            'status'            => true,
+            'status'            => $parent->getWithCascade('default_status') === 'draft' ? false : true,
             'is_default_locale' => true,
             'locale'            => $this->locale($request),
             'locales'           => $this->getLocales(),

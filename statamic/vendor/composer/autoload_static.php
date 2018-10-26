@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit4b63de39d93c2462c4226ec0764244d0
+class ComposerStaticInitfac2c5b84ddd2671641040439a58937d
 {
     public static $files = array (
         '95a22d2145ae40de20dc7ea7be07a610' => __DIR__ . '/../..' . '/bootstrap/helpers.php',
@@ -2870,12 +2870,14 @@ class ComposerStaticInit4b63de39d93c2462c4226ec0764244d0
         'Statamic\\Events\\Data\\FieldsetSaved' => __DIR__ . '/../..' . '/core/Events/Data/FieldsetSaved.php',
         'Statamic\\Events\\Data\\FileUploaded' => __DIR__ . '/../..' . '/core/Events/Data/FileUploaded.php',
         'Statamic\\Events\\Data\\FindingFieldset' => __DIR__ . '/../..' . '/core/Events/Data/FindingFieldset.php',
+        'Statamic\\Events\\Data\\FormSaved' => __DIR__ . '/../..' . '/core/Events/Data/FormSaved.php',
         'Statamic\\Events\\Data\\GlobalsDeleted' => __DIR__ . '/../..' . '/core/Events/Data/GlobalsDeleted.php',
         'Statamic\\Events\\Data\\GlobalsSaved' => __DIR__ . '/../..' . '/core/Events/Data/GlobalsSaved.php',
         'Statamic\\Events\\Data\\PageDeleted' => __DIR__ . '/../..' . '/core/Events/Data/PageDeleted.php',
         'Statamic\\Events\\Data\\PageMoved' => __DIR__ . '/../..' . '/core/Events/Data/PageMoved.php',
         'Statamic\\Events\\Data\\PageSaved' => __DIR__ . '/../..' . '/core/Events/Data/PageSaved.php',
         'Statamic\\Events\\Data\\PagesMoved' => __DIR__ . '/../..' . '/core/Events/Data/PagesMoved.php',
+        'Statamic\\Events\\Data\\PagesReordered' => __DIR__ . '/../..' . '/core/Events/Data/PagesReordered.php',
         'Statamic\\Events\\Data\\PublishFieldsetFound' => __DIR__ . '/../..' . '/core/Events/Data/PublishFieldsetFound.php',
         'Statamic\\Events\\Data\\RoleDeleted' => __DIR__ . '/../..' . '/core/Events/Data/RoleDeleted.php',
         'Statamic\\Events\\Data\\RoleSaved' => __DIR__ . '/../..' . '/core/Events/Data/RoleSaved.php',
@@ -3019,6 +3021,7 @@ class ComposerStaticInit4b63de39d93c2462c4226ec0764244d0
         'Statamic\\Http\\Controllers\\UserGroupsController' => __DIR__ . '/../..' . '/core/Http/Controllers/UserGroupsController.php',
         'Statamic\\Http\\Controllers\\UsersController' => __DIR__ . '/../..' . '/core/Http/Controllers/UsersController.php',
         'Statamic\\Http\\Kernel' => __DIR__ . '/../..' . '/core/Http/Kernel.php',
+        'Statamic\\Http\\Middleware\\CP\\AddHeaders' => __DIR__ . '/../..' . '/core/Http/Middleware/CP/AddHeaders.php',
         'Statamic\\Http\\Middleware\\CP\\Authenticate' => __DIR__ . '/../..' . '/core/Http/Middleware/CP/Authenticate.php',
         'Statamic\\Http\\Middleware\\CP\\Configurable' => __DIR__ . '/../..' . '/core/Http/Middleware/CP/Configurable.php',
         'Statamic\\Http\\Middleware\\CP\\DefaultLocale' => __DIR__ . '/../..' . '/core/Http/Middleware/CP/DefaultLocale.php',
@@ -3128,6 +3131,7 @@ class ComposerStaticInit4b63de39d93c2462c4226ec0764244d0
         'Statamic\\Stache\\Listeners\\UpdateItem' => __DIR__ . '/../..' . '/core/Stache/Listeners/UpdateItem.php',
         'Statamic\\Stache\\Loader' => __DIR__ . '/../..' . '/core/Stache/Loader.php',
         'Statamic\\Stache\\Manager' => __DIR__ . '/../..' . '/core/Stache/Manager.php',
+        'Statamic\\Stache\\NullLockStore' => __DIR__ . '/../..' . '/core/Stache/NullLockStore.php',
         'Statamic\\Stache\\Persister' => __DIR__ . '/../..' . '/core/Stache/Persister.php',
         'Statamic\\Stache\\Repository' => __DIR__ . '/../..' . '/core/Stache/Repository.php',
         'Statamic\\Stache\\Stache' => __DIR__ . '/../..' . '/core/Stache/Stache.php',
@@ -3757,10 +3761,10 @@ class ComposerStaticInit4b63de39d93c2462c4226ec0764244d0
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit4b63de39d93c2462c4226ec0764244d0::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit4b63de39d93c2462c4226ec0764244d0::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit4b63de39d93c2462c4226ec0764244d0::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit4b63de39d93c2462c4226ec0764244d0::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitfac2c5b84ddd2671641040439a58937d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitfac2c5b84ddd2671641040439a58937d::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitfac2c5b84ddd2671641040439a58937d::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitfac2c5b84ddd2671641040439a58937d::$classMap;
 
         }, null, ClassLoader::class);
     }

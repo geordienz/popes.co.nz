@@ -585,7 +585,7 @@ function refreshing_addons()
  */
 function cp_middleware()
 {
-    return ['cp-enabled', 'enforce-default-cp-locale', 'set-cp-locale', 'outpost'];
+    return ['cp-enabled', 'add-cp-headers', 'enforce-default-cp-locale', 'set-cp-locale', 'outpost'];
 }
 
 /**

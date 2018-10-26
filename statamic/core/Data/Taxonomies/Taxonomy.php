@@ -168,8 +168,7 @@ class Taxonomy extends DataFolder implements TaxonomyContract
             $term->delete();
         });
 
-        // Delete folder.
-        Folder::disk('content')->delete('taxonomies/' . $this->path());
+        File::disk('content')->delete('taxonomies/' . $this->path() . '.yaml');
 
         // Remove from routes.
         $routes = collect(Config::get('routes.taxonomies'))->except($this->path())->all();

@@ -27,9 +27,15 @@ export default MediumEditor.Extension.extend({
     onPaste: function (pasteEvent) {
         const field = pasteEvent.target
         Array.from(field.children).forEach(el => replaceListItem(el));
+
+        // Save the selection *after* the replacements have been done because the list prefixes will be removed.
+        this.base.saveSelection();
+
         let els = flattenGroups(wrapListItems(groupElements(Array.from(field.children))));
         els.forEach(el => field.appendChild(el));
         this.base.checkContentChanged();
+
+        this.base.restoreSelection();
     }
 });
 
@@ -102,7 +108,7 @@ function replaceListItem(el) {
 
     // Set whether it belongs in a ul or ol depending on the prefix, and store it in the DOM's datalist for later.
     const regex = new RegExp(type === 'ul' ? /^([\*\-]\s)/ : /^(\d+\.\s)/);
-    newEl.textContent = el.textContent.replace(regex, '');
+    newEl.textContent = el.textContent.trim().replace(regex, '');
     newEl.dataset.liType = type;
 
     replaceInDom(el, newEl);
@@ -112,9 +118,11 @@ function replaceListItem(el) {
  * Determine whether a given element should be in a ul or ol
  */
 function listItemType(el) {
-    if (/^[\*\-]\s/.test(el.textContent)) {
+    const content = el.textContent.trim();
+
+    if (/^[\*\-]\s/.test(content)) {
         return 'ul';
-    } else if (/^\d+\.\s/.test(el.textContent)) {
+    } else if (/^\d+\.\s/.test(content)) {
         return 'ol';
     }
 

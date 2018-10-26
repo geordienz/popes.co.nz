@@ -33,10 +33,6 @@
                     <user-options v-if="isUser && !isNew" :username="slug" :status="contentData.status" class="mr-2"></user-options>
 
                     <div class="btn-group my-1 mr-2" v-if="$parent.isPublishPage && url">
-                        <template v-if="staticCachingEnabled">
-                            <a href="{{ url }}" target="_blank" class="btn">{{ translate('cp.visit_url') }}</a>
-                        </template>
-                        <template v-else>
                             <button type="button" class="btn" @click.prevent="$parent.preview">{{ translate('cp.sneak_peek') }}</button>
                             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="caret"></span>
@@ -45,7 +41,6 @@
                             <ul class="dropdown-menu">
                                 <li><a href="{{ url }}" target="_blank">{{ translate('cp.visit_url') }}</a></li>
                             </ul>
-                        </template>
                     </div>
 
                     <div class="btn-group btn-group-primary my-1" v-if="canEdit">
@@ -204,7 +199,6 @@ export default {
             previewRequestQueued: false,
             errors: [],
             publishType: 'save',
-            staticCachingEnabled: window.Statamic.staticCachingEnabled,
             activeSection: null
         };
     },
@@ -371,6 +365,10 @@ export default {
             if (keys.length === 0) return this.activeSection;
 
             return sections[keys[0]];
+        },
+
+        saveBehaviorScope() {
+            return 'statamic.publish.' + this.contentType + '.type';
         }
     },
 
@@ -444,7 +442,7 @@ export default {
 
         publishWithoutContinuing: function () {
             this.publishType = 'save';
-            localStorage.setItem('statamic.publish.type', 'save');
+            localStorage.setItem(this.saveBehaviorScope, 'save');
             Vue.delete(this.formData, 'continue');
             Vue.delete(this.formData, 'another');
 
@@ -453,7 +451,7 @@ export default {
 
         publishAndContinue: function() {
             this.publishType = 'continue';
-            localStorage.setItem('statamic.publish.type', 'continue');
+            localStorage.setItem(this.saveBehaviorScope, 'continue');
             this.formData.continue = true;
             Vue.delete(this.formData, 'another');
 
@@ -462,7 +460,7 @@ export default {
 
         publishAndAnother: function() {
             this.publishType = 'another';
-            localStorage.setItem('statamic.publish.type', 'another');
+            localStorage.setItem(this.saveBehaviorScope, 'another');
             this.formData.another = true;
             Vue.delete(this.formData, 'continue');
 
@@ -604,7 +602,7 @@ export default {
         },
 
         getInitialPublishType: function () {
-            let type = localStorage.getItem('statamic.publish.type') || 'save';
+            let type = localStorage.getItem(this.saveBehaviorScope) || 'save';
 
             if (!this.allowSaveAndAddAnother && type === 'another') {
                 type = 'save';

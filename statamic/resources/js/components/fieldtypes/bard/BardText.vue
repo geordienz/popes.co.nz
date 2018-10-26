@@ -274,6 +274,9 @@
                     // Clean up any annoying span tags that were added by contenteditable.
                     $(this.field).find('span[style]').contents().unwrap();
 
+                    // Aaaaand style attributes...
+                    $(this.field).find('*').contents().removeAttr('style');
+
                     this.text = this.editor.getContent();
                 });
 

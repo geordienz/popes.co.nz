@@ -57,7 +57,7 @@ class PublishEntryController extends PublishController
             'uri'               => null,
             'url'               => null,
             'slug'              => null,
-            'status'            => true,
+            'status'            => $collection->get('default_status') === 'draft' ? false : true,
             'locale'            => $this->locale(request()),
             'is_default_locale' => true,
             'locales'           => $this->getLocales(),

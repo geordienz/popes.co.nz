@@ -28,7 +28,7 @@ class PageMoved extends Event implements DataEvent
      * @param Page $page
      * @param string $oldPath
      */
-    public function __construct(Page $page, string $oldPath, string $newPath)
+    public function __construct(Page $page, $oldPath, $newPath)
     {
         $this->page = $page;
         $this->oldPath = $oldPath;

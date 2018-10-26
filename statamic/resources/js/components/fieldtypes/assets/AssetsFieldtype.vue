@@ -368,6 +368,7 @@ export default {
          */
         uploadComplete(asset) {
             this.assets.push(asset);
+            this.sortable();
         },
 
         /**

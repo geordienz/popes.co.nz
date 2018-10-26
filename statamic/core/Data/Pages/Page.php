@@ -295,11 +295,12 @@ class Page extends Content implements PageContract
         $path = Path::directory(Path::clean(substr($this->path(), 5)));
 
         $segments = explode('/', $path);
+        $segments[0] = '/';
 
         $data = [];
 
         while (count($segments)) {
-            $path = join('/', $segments);
+            $path = Path::tidy(join('/', $segments));
 
             if ($folder = PageFolderAPI::whereHandle($path)) {
                 $data = array_merge($folder->data(), $data);

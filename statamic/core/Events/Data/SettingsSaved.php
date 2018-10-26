@@ -21,7 +21,7 @@ class SettingsSaved extends Event implements DataEvent
      * @param string $path
      * @param array $data
      */
-    public function __construct(string $path, array $data)
+    public function __construct($path, array $data)
     {
         $this->path = $path;
         $this->data = $data;

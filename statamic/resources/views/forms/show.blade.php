@@ -29,17 +29,15 @@
             </div>
 
             @if (! empty($form->metrics()))
-            <div class="card">
-                    <div class="metrics">
-                        @foreach($form->metrics() as $metric)
-                            <div class="metric simple">
-                                <div class="count">
-                                    <small>{{ $metric->label() }}</small>
-                                    <h2>{{ $metric->result() }}</h2>
-                                </div>
-                            </div>
-                        @endforeach
+            <div class="metrics mb-3">
+                @foreach($form->metrics() as $metric)
+                    <div class="card metric m-0 simple">
+                        <div class="count">
+                            <small>{{ $metric->label() }}</small>
+                            <h2>{{ $metric->result() }}</h2>
+                        </div>
                     </div>
+                @endforeach
             </div>
             @endif
 

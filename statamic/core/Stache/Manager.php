@@ -3,6 +3,7 @@
 namespace Statamic\Stache;
 
 use Statamic\API\Cache;
+use Statamic\API\Config;
 use Statamic\Events\StacheUpdated;
 
 class Manager
@@ -102,15 +103,24 @@ class Manager
 
     protected function waitForUpdateToComplete()
     {
+        if (! Config::get('caching.stache_lock_enabled')) {
+            return;
+        }
+
         $start = time();
 
         while ($this->isLocked()) {
-            if (time() - $start >= 10) {
+            if (time() - $start >= Config::get('caching.stache_lock_wait_length')) {
                 throw new TimeoutException;
             }
 
             sleep(1);
         }
+
+        // We want to immediately release the lock that was acquired when checking,
+        // otherwise this request will hold it until it's complete. That would
+        // result in all other requests waiting for this one to finish.
+        $this->stache->lock()->release();
     }
 
     protected function isLocked()

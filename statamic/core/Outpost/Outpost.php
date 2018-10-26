@@ -65,7 +65,7 @@ class Outpost
      */
     public function radio()
     {
-        if ($this->getPreviousPayload() !== $this->getPayload()) {
+        if ($this->payloadHasChanged()) {
             $this->clearCachedResponse();
         }
 
@@ -346,6 +346,17 @@ class Outpost
     private function getPreviousPayload()
     {
         return Cache::get(self::PAYLOAD_CACHE_KEY);
+    }
+
+    private function payloadHasChanged()
+    {
+        $prev = $this->getPreviousPayload();
+        $current = $this->getPayload();
+
+        // We don't want a different user's IP to be considered a change.
+        unset($prev['request']['ip'], $current['request']['ip']);
+
+        return $prev !== $current;
     }
 
     private function getAddonsPayload()

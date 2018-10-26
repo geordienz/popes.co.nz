@@ -48,6 +48,12 @@ class Fieldtype implements FieldtypeInterface
     public $category = ['text'];
 
     /**
+     * Whether this fieldtype should appear in the selector
+     * @var bool
+     */
+    public $selectable = true;
+
+    /**
      * Create a new fieldtype instance
      */
     public function __construct()

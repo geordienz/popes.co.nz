@@ -76,6 +76,8 @@ class FieldtypesController extends CpController
     {
         return $this->addonRepo->fieldtypes()->classes()->map(function ($class) {
             return app($class);
+        })->filter(function ($fieldtype) {
+            return $fieldtype->selectable;
         })->sortBy(function ($fieldtype) {
             return $fieldtype->getAddonName();
         })->values();

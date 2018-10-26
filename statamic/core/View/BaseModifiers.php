@@ -1323,6 +1323,20 @@ class BaseModifiers extends Modifier
     }
 
     /**
+     * Pad array to the specified length with a value
+     * @param  $value
+     * @param  $params
+     * @return string
+     */
+    public function pad($value, $params)
+    {
+        $amount = array_get($params, 0, 0);
+        $with = array_get($params, 1, null);
+
+        return array_pad($value, $amount, $with);
+    }
+
+    /**
      * Renders an array variable with a partial, context aware
      * @param  $value
      * @param  $params

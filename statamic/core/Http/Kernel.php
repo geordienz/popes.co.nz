@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
         'enforce-default-cp-locale' => 'Statamic\Http\Middleware\CP\DefaultLocale',
         'set-cp-locale' => 'Statamic\Http\Middleware\CP\Localize',
         'staticcache' => 'Statamic\StaticCaching\Middleware\Cache',
+        'add-cp-headers' => 'Statamic\Http\Middleware\CP\AddHeaders',
     ];
 
     public function bootstrappers()

@@ -4,6 +4,7 @@
         v-if="hasParent && !restrictNavigation || (!isSearching || (isSearching && hasResults))">
 
         <div class="asset-tile is-folder"
+             v-if="hasParent && !restrictNavigation"
              @click.prevent="selectFolder(folder.parent_path)">
             <div class="asset-thumb-container">
                 <file-icon extension="folder"></file-icon>

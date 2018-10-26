@@ -15,7 +15,7 @@ class FileUploaded extends Event implements DataEvent
     /**
      * @param string $path
      */
-    public function __construct(string $path)
+    public function __construct($path)
     {
         $this->path = $path;
     }

@@ -13,6 +13,7 @@ use Statamic\Stache\Stache;
 use Statamic\Stache\Manager;
 use Illuminate\Support\ServiceProvider;
 use Statamic\Stache\Persister;
+use Statamic\Stache\NullLockStore;
 use Statamic\Stache\UpdateManager;
 use Symfony\Component\Lock\Factory;
 use Statamic\Stache\TimeoutException;
@@ -76,9 +77,13 @@ class StacheServiceProvider extends ServiceProvider
 
     private function lock()
     {
-        $store = (config('cache.default') === 'redis')
-            ? $this->createRedisLockStore()
-            : $this->createFileLockStore();
+        if (Config::get('caching.stache_lock_enabled', true)) {
+            $store = (config('cache.default') === 'redis')
+                ? $this->createRedisLockStore()
+                : $this->createFileLockStore();
+        } else {
+            $store = new NullLockStore;
+        }
 
         $name = config('cache.prefix') . ':stache-lock';
 
