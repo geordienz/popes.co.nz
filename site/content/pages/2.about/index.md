@@ -49,9 +49,6 @@ team:
     name: Nala
     title: Digger
     photo: /assets/img/team/nala.jpg
-  - 
-    name: Tiffany Byrne
-    title: Office Administrator
-    photo: /assets/img/team/tiffany.jpg
+  
 id: 3e04358e-3e90-4da5-993b-756a61315bf1
 fieldset: default
