@@ -22,12 +22,12 @@ team:
     title: Sales Consultant
     photo: /assets/img/team/dee.jpg
   - 
-    name: John Sutcliffe
-    title: 'Engineering & Pricing Mgr'
-    photo: /assets/img/team/john2.jpg
+    name: Zane Upton
+    title: Site Manager
+    photo: /assets/img/team/zane.jpg
   - 
     name: Leigh Pope
-    title: Accounts
+    title: Office Manager/Accounts
     photo: /assets/img/team/leigh.jpg
   - 
     name: Richard Graham
@@ -49,5 +49,9 @@ team:
     name: Nala
     title: Digger
     photo: /assets/img/team/nala.jpg
+  - 
+    name: Tiffany Byrne
+    title: Office Administrator
+    photo: /assets/img/team/tiffany.jpg
 id: 3e04358e-3e90-4da5-993b-756a61315bf1
 fieldset: default
