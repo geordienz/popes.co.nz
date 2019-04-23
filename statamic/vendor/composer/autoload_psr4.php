@@ -28,7 +28,7 @@ return array(
     'Symfony\\Component\\CssSelector\\' => array($vendorDir . '/symfony/css-selector'),
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'SuperClosure\\' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
-    'Stringy\\' => array($vendorDir . '/danielstjules/stringy/src'),
+    'Stringy\\' => array($vendorDir . '/danielstjules/stringy/src', $vendorDir . '/statamic/stringy/src'),
     'Statamic\\SiteHelpers\\' => array($baseDir . '/../site/helpers'),
     'Statamic\\Addons\\' => array($baseDir . '/bundles', $baseDir . '/../site/addons'),
     'Statamic\\' => array($baseDir . '/core'),
@@ -60,7 +60,7 @@ return array(
     'ComposerIncludeFiles\\' => array($vendorDir . '/funkjedi/composer-include-files/src'),
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
     'ClassPreloader\\' => array($vendorDir . '/classpreloader/classpreloader/src'),
-    'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Barryvdh\\Debugbar\\' => array($vendorDir . '/barryvdh/laravel-debugbar/src'),
     'Aws\\' => array($vendorDir . '/aws/aws-sdk-php/src'),
+    '' => array($vendorDir . '/nesbot/carbon/src'),
 );

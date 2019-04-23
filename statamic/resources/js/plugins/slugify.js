@@ -1,15 +1,12 @@
-import { slugify } from 'transliterations';
+var getSlug = require('speakingurl');
 
 export default {
-
     install(Vue, options) {
-
         Vue.prototype.$slugify = function(text, glue) {
-            return slugify(text, {
-                separator: glue || '-'
+            return getSlug(text, {
+                separator: glue || '-',
+                custom: {'\'': ''}
             });
         };
-
     }
-
 };
