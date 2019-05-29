@@ -90,7 +90,8 @@ export default {
     data: function () {
         return {
             columns: this.$parent.columns,
-            reordering: false
+            reordering: false,
+            sortable: false,
         }
     },
 
@@ -189,6 +190,7 @@ export default {
         },
 
         sortBy: function (col) {
+            if (!this.sortable) return;
             if (this.isSearching) return;
 
             let sort = col.value;
@@ -225,6 +227,11 @@ export default {
 
             self.reordering = true;
 
+            // Sort by the actual order and disable any sorting so you can
+            // be assured what you're dragging around will be consistent.
+            self.sortable = false;
+            self.$parent.sortBy('order', 'asc');
+
             $(this.$els.tbody).sortable({
                 axis: 'y',
                 revert: 175,
@@ -248,6 +255,7 @@ export default {
 
         disableReorder: function () {
             this.reordering = false;
+            this.sortable = true;
             $(this.$els.tbody).sortable('destroy');
         },
 
@@ -294,7 +302,12 @@ export default {
                 return html;
             }
 
-            return Array.isArray(value) ? value.join(', ') : value;
+            function htmlEntities(str) {
+                if (!str) return '';
+                return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            return Array.isArray(value) ? value.map(v => htmlEntities(v)).join(', ') : htmlEntities(value);
         }
     },
 

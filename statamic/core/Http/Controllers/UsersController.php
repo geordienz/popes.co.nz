@@ -267,7 +267,7 @@ class UsersController extends CpController
 
         $this->success(t('saved_success'));
 
-        return redirect()->route('users');
+        return back();
     }
 
     /**
@@ -300,6 +300,10 @@ class UsersController extends CpController
         $resetter = new PasswordReset;
 
         $resetter->user($user);
+
+        if ($user->can('cp:access')) {
+            $resetter->redirect(route('login'));
+        }
 
         return [
             'success' => true,

@@ -3,6 +3,7 @@
 namespace Statamic\Data\Content;
 
 use Carbon\Carbon;
+use Statamic\API\Str;
 use Statamic\API\Config;
 use Statamic\API\File;
 use Statamic\API\Helper;
@@ -220,7 +221,9 @@ abstract class Content extends Data implements ContentContract
         }
 
         // If file was moved, set the old path.
-        $oldPath = $this->path() !== $this->originalPath() ? $this->originalPath() : null;
+        $oldPaths = collect($this->locales())->map(function ($locale) {
+            return $this->originalLocalizedPath($locale);
+        })->all();
 
         // Write files to disk. One for each locale stored in this data.
         $this->writeFiles();
@@ -234,9 +237,9 @@ abstract class Content extends Data implements ContentContract
 
         // Setup event for whoever wants to know about the saved content.
         $eventClass = 'Statamic\Events\Data\\' . ucfirst($this->contentType()) . 'Saved';
-        event(new $eventClass($this, $original, $oldPath));
+        event(new $eventClass($this, $original, $oldPaths));
         event('content.saved', [$this, $original]); // Deprecated! Please listen on ContentSaved event instead!
-        event(new ContentSaved($this, $original, $oldPath));
+        event(new ContentSaved($this, $original, $oldPaths));
 
         return $this;
     }
@@ -459,7 +462,15 @@ abstract class Content extends Data implements ContentContract
         $array = [];
 
         foreach ($fields as $field) {
-            $array[$field] = method_exists($this, $field) ? $this->$field() : $this->getWithDefaultLocale($field);
+            $value = method_exists($this, $camel = Str::camel($field))
+                ? $this->$camel()
+                : $this->getWithDefaultLocale($field);
+
+            if ($value instanceof Carbon) {
+                $value = $value->timestamp;
+            }
+
+            $array[$field] = $value;
         }
 
         return $array;

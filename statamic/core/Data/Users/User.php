@@ -130,12 +130,11 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
      */
     public function localizedPath($locale)
     {
-        // @todo
-        dd('todo user@localizedpath');
+        return $this->path();
     }
 
     /**
-     * Save a user to file
+     * Save a user to file.
      *
      * @return $this
      */
@@ -498,9 +497,7 @@ class User extends Data implements UserContract, Authenticatable, PermissibleCon
     }
 
     /**
-     * Delete the data
-     *
-     * @return mixed
+     * Delete the user.
      */
     public function delete()
     {

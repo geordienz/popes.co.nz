@@ -3,7 +3,7 @@
 	<table v-if="hasData && !stacked" class="grid-table bordered-table">
 		<thead>
 			<tr>
-				<th v-for="field in config.fields" :style="{ width: gridColWidth(field.width) }">
+				<th v-for="field in visibleFields" :style="{ width: gridColWidth(field.width) }">
 					<div class="flexy">
 						<label class="block fill">
 							<template v-if="field.display">{{ field.display }}</template>
@@ -18,7 +18,7 @@
 		</thead>
 		<tbody>
 			<tr v-for="(rowIndex, row) in data" :class="{excess: isExcessive(rowIndex)}">
-				<td v-for="field in config.fields">
+				<td v-for="field in visibleFields">
 					<div class="{{ field.type }}-fieldtype">
 						<component :is="componentName(field.type)"
 						           :name="name + '.' + rowIndex + '.' + field.name"
@@ -29,7 +29,9 @@
 				</td>
                 <td class="row-controls">
                     <span class="icon icon-menu move drag-handle"></span>
-                    <span class="icon icon-cross delete" v-on:click="deleteRow(rowIndex)"></span>
+                    <template v-if="canDeleteRows">
+                        <span class="icon icon-cross delete" v-on:click="deleteRow(rowIndex)"></span>
+                    </template>
                 </td>
 			</tr>
 		</tbody>
@@ -40,7 +42,9 @@
 			<div class="list-group-item group-header pl-3 drag-handle">
 				<div class="flexy">
 					<label class="fill">{{ rowIndex + 1 }}</label>
-					<i class="icon icon-cross" v-on:click="deleteRow(rowIndex)"></i>
+                    <template v-if="canDeleteRows">
+                        <i class="icon icon-cross" v-on:click="deleteRow(rowIndex)"></i>
+                    </template>
 				</div>
 			</div>
 			<div class="list-group-item p-0">
@@ -107,6 +111,14 @@ export default {
              return this.$parent.$options.name === 'grid-fieldtype';
         },
 
+        canDeleteRows: function() {
+            if (this.min_rows && this.data) {
+                return (this.data.length > this.min_rows);
+            }
+
+            return true;
+        },
+
         canAddRows: function() {
             if (this.max_rows && this.data) {
                 return (this.data.length < this.max_rows);
@@ -117,6 +129,10 @@ export default {
 
         addRowButton: function() {
             return this.config.add_row || translate_choice('cp.rows', 1);
+        },
+
+        visibleFields: function () {
+            return this.config.fields.filter(field => field.type !== 'hidden');
         }
     },
 
