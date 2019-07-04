@@ -39,7 +39,7 @@ team:
     photo: /assets/img/team/shelley.jpg
   - 
     name: Zak Portland
-    title: Production Manager
+    title: Commercial Manager
     photo: /assets/img/team/zak.jpg
   - 
     name: George Grant
