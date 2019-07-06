@@ -35,7 +35,7 @@ team:
     photo: /assets/img/team/richie.jpg
   - 
     name: Shelley Barnett
-    title: Purchasing Mgr
+    title: Purchasing Manager
     photo: /assets/img/team/shelley.jpg
   - 
     name: Zak Portland
