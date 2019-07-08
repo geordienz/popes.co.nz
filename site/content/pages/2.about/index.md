@@ -43,7 +43,7 @@ team:
     photo: /assets/img/team/zak.jpg
   - 
     name: George Grant
-    title: 'Health & Safety'
+    title: 'Health and Safety'
     photo: /assets/img/team/george.jpg
   - 
     name: Nala
