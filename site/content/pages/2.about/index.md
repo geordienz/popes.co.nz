@@ -11,11 +11,11 @@ team:
     photo: /assets/img/team/frank.jpg
   - 
     name: Ron Pope
-    title: Director
+    title: BOP Area Manager/Director
     photo: /assets/img/team/ron.jpg
   - 
     name: "David O'Sullivan"
-    title: Waikato Area Mgr
+    title: National Operations Manager
     photo: /assets/img/team/david.jpg
   - 
     name: Dee Pascoe
@@ -23,16 +23,12 @@ team:
     photo: /assets/img/team/dee.jpg
   - 
     name: Zane Upton
-    title: Site Manager
+    title: Waikato Area Manager
     photo: /assets/img/team/zane.jpg
   - 
     name: Leigh Pope
     title: Office Manager/Accounts
     photo: /assets/img/team/leigh.jpg
-  - 
-    name: Richard Graham
-    title: Project Manager
-    photo: /assets/img/team/richie.jpg
   - 
     name: Shelley Barnett
     title: Purchasing Manager
