@@ -12,7 +12,7 @@ slides:
     content: Please read about Pope Electrical's safe practices and policies during the virus outbreak - CLICK HERE
     color: red
     image: /assets/img/covid-19.jpg
-    link: /covid-19
+    link: /thanks
   - 
     title: We install super-efficient Heat Pumps
     content: Have a browse around our Heat Pump Store and book a consultation today!

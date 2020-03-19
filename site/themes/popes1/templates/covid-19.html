@@ -1,0 +1,69 @@
+---
+body_class: neverland
+title: Spring Special!
+image: /assets/img/home_e3series_design.jpg
+---
+
+<div class="logo p-2 text-center">
+    <a href="/" title="pope electrical">
+        {{ theme:output src="img/logo.svg" }}
+    </a>
+</div>
+
+<div class="relative h-screen-1/2 bg-center flex items-center text-center bg-cover bg-no-repeat" style="background-image: url('{{ image }}');">
+    <div class="bg-grey-dark absolute z-10 w-full h-full opacity-75"></div>
+    <div class="w-full relative z-20">
+        <h1 class="text-white mb-3">{{ title }}</h1>
+        <h2 class="text-white">Deals for August, 2018</h2>
+    </div>
+</div>
+
+<div class="tiles -mt-8 z-50 relative shadow-lg mb-8">
+    <div class="tile-pair top odd">
+        <div class="tile text-only pt-3">
+            <div class="tile-content">
+              <h2 class="leading-tight">Contact us for a consultation or call <span class="text-red">(07) 542 3355</h2>
+
+              <div class="flex flex-wrap text-center -m-1">
+                  <div class="bg-red text-white py-3 px-2 m-1 w-full">
+                      <h3 class="text-4xl tracking-wide m-0 font-headline">Free $100 Service</h3>
+                      <p class="text-md m-0">With Every New Fujitsu Heat Pump <br />
+                    (plus, you'll be in the draw to win an Islands holiday!)</p>
+                  </div>
+                  <div class="bg-red text-white py-3 px-2 m-1 w-full">
+                      <h3 class="text-4xl tracking-wide m-0 font-headline">$20 Off</h3>
+                      <p class="text-md m-0">Heat Pump or Air Conditioner Service</p>
+                  </div>
+              </div>
+
+              <p class="text-grey text-center mt-3 text-sm mb-0">Offers expire 31st August 2018. Offers cannot be combined and cannot be used with any other offer.</p>
+            </div>
+        </div>
+        <div class="tile form">
+          <h2>Request An Appointment</h2>
+
+          {{ form:create formset="contact" redirect="/contact/thanks" }}
+            {{ if errors }}
+                {{ errors }}
+                    <li>{{ value }}</li>
+                {{ /errors }}
+            {{ /if }}
+
+            <input type="text" name="name" placeholder="Full Name">
+            <input type="text" name="phone" placeholder="Phone Number">
+            <input type="email" name="email" placeholder="Email">
+            <select name="service">
+              <option value="">Pick Service</option>
+              {{ collection:services }}
+              <option value="{{ slug }}">{{ title }}</option>
+              {{ /collection:services }}
+            </select>
+            <textarea name="message" cols="30" rows="10" placeholder="Add a note..."></textarea>
+            <button type="submit" class="button">Submit</button>
+          {{ /form:create }}
+
+        </div>
+    </div>
+</div>
+
+{{ partial:creds }}
