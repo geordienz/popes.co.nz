@@ -1,5 +1,5 @@
 ---
-title: Papamoa
+title: Bay of Plenty and Waikato
 meta_title: Electricians in Papamoa
 meta_description: "We reckon we have the best team of electricians in the Bay of Plenty. Don't believe us? Ask our customers!"
 intro: >
@@ -7,9 +7,8 @@ intro: >
   show you that good old Kiwi tradesmanship is still alive and kicking.
 id: f70bc7cd-8016-4f7c-a493-334aee3950a3
 ---
-## Papamoa
+## Projects
 
-We operate from our new office and workshop premises in Papamoa.
+Pope Electrical are heavily involved in many residential housing and commercial projects across the Bay of Plenty and Waikato
 
-
-![Our new premises](/assets/img/office-front-1.jpg)
+![The Lakes](/assets/img/pope-van001.jpg)
