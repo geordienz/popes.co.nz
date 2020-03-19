@@ -1,4 +1,4 @@
-template: blog
+template: default
 blocks:
   - 
     type: panel
