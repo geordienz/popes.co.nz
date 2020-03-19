@@ -2,7 +2,6 @@
 title: covid-19
 fieldset: default
 id: 59b8fdc5-371e-4499-a3a8-6b8ca041bc9b
-mount: covid-19
 ---
 Dear valued customers/suppliers,
 
