@@ -1,0 +1,10 @@
+sections:
+  main:
+    display: Main
+    fields:
+      field_1:
+        type: textarea
+        display: Field 1
+taxonomies: true
+hide: true
+title: Hidden
