@@ -5,3 +5,5 @@ collections:
   locations: '/locations/{slug}'
   careers: '/careers/{slug}'
   blog: '/careers/{slug}'
+  covid-19: 'about/{slug}'
+taxonomies: [ ]
