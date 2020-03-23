@@ -39,12 +39,11 @@ team:
     photo: /assets/img/team/zak.jpg
   - 
     name: George Grant
-    title: 'Health and Safety'
+    title: Health and Safety
     photo: /assets/img/team/george.jpg
   - 
     name: Nala
     title: Digger
     photo: /assets/img/team/nala.jpg
-  
-id: 3e04358e-3e90-4da5-993b-756a61315bf1
+id: c07f65a1-2668-4b06-84fe-bc7a1716ab59
 fieldset: default
