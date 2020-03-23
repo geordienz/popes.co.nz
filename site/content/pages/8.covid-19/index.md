@@ -30,6 +30,6 @@ There is little doubt that the situation will get worse as time goes on, and our
 
 Pope Electrical will be happy to continue to be of service to you during this difficult period and beyond.
 
-Hoping you all keep healthy and safe,
+Hoping we all keep healthy and safe,
 
 The Team at Pope Electrical.
