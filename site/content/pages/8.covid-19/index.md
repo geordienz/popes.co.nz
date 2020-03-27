@@ -1,13 +1,16 @@
 ---
 title: Covid-19
 seo:
-  description: "xxxxxxxxxxxxxxxxxxxxxxxxxxxx, fibre technician or heat pump installer?  Check out Pope Electrical's Careers Page."
+  description: "Covid-19 Information"
 template: covid-19
-intro: 'xxxxxxxxxxxxxxxxxxxxxxx.  Check out our vacancies below (if there are any) and if you feel you would like to be part of  a longstanding, honest, progressive, Kiwi company, just click on the appropriate position for further details.'
+intro: 'Here is the latest information from Pope Electrical on the Covid-19 outbreak.'
 fieldset: default
 hide_from_nav: true
 id: cfd573d1-d191-4401-8504-d1985a6e26a9
 ---
+Like most of the rest of the country, we are now in lockdown.
+However, we realise that there may be extreme situations where customers will still require our services during this time (please see below).  If you have lost power to your home, or an important part of your home (e.g. freezer failure, no heating, etc), please call our main number -  07 542 3355.
+
 Dear valued customers/suppliers,
 
 We are all no doubt aware of, and concerned by, the effects in New Zealand of COVID-19 coronavirus.

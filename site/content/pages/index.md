@@ -9,9 +9,9 @@ youtube_id: PDssNldXl6s
 slides:
   - 
     title: COVID-19 coronavirus
-    content: Please read about Pope Electrical's safe practices and policies during the virus outbreak - CLICK HERE
+    content: Please read about Pope Electrical's safe practices and policies during the virus lockdown - CLICK HERE
     color: red
-    image: /assets/img/covid-19.jpg
+    image: /assets/img/covid-19-2.jpg
     link: /covid-19
   - 
     title: We install super-efficient Heat Pumps
