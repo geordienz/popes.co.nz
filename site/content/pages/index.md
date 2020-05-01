@@ -9,16 +9,16 @@ youtube_id: PDssNldXl6s
 slides:
   - 
     title: COVID-19 coronavirus
-    content: Please read about Pope Electrical's safe practices and policies during the virus lockdown - CLICK HERE
-    color: red
-    image: /assets/img/covid-19-2.jpg
+    content: "Please read about Pope Electrical's safe practices and policies during the virus lockdown - CLICK HERE"
+    color: tan
+    image: /assets/img/covid-19-open-level3.jpg
     link: /covid-19
   - 
     title: We install super-efficient Heat Pumps
     content: Have a browse around our Heat Pump Store and book a consultation today!
     color: tan
     image: /assets/img/heat-pump-1.jpg
-    link: /services/heating  
+    link: /services/heating
   - 
     title: We fit quality Security Alarms
     content: Protect your home 24/7 with a professionally installed Alarm System.
