@@ -1,9 +1,9 @@
 ---
 title: Covid-19
 seo:
-  description: "Covid-19 Information"
+  description: Covid-19 Information
 template: covid-19
-intro: 'Here is the latest information from Pope Electrical on the Covid-19 outbreak.'
+intro: Here is the latest information from Pope Electrical on the Covid-19 outbreak.
 fieldset: default
 hide_from_nav: true
 id: cfd573d1-d191-4401-8504-d1985a6e26a9
