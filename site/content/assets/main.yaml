@@ -54,3 +54,6 @@ assets:
   img/covid-19-2.jpg:
     title: covid 19 lockdown
     alt: covid 19 lockdown
+  img/covid-19-level2.jpg:
+    title: Covid-19 Level 2
+    alt: covid-19-level-2
