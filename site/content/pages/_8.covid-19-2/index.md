@@ -1,5 +1,5 @@
 ---
-title: Covid-19 Level 3
+title: Covid-19 Level 2
 seo:
   description: Covid-19 Information
 template: covid-19
@@ -8,7 +8,8 @@ fieldset: default
 hide_from_nav: true
 id: 5d9b1471-2733-4442-8187-1707851d2a70
 ---
-Now that New Zealand is in 'Level 3 Lockdown', it is almost "business as usual" for us here at Popes, but not quite.
+Now that New Zealand is in 'Level 2 Lockdown', we are getting ever closer to "business as usual" at Popes. 
+
 We are taking bookings for any of your electrical requirements but, due to the situation we now find ourselves in, it may take a little longer to get the job done.  With emergency situations we will still endeavour to call on you as quickly as possible. Please continue to call our main number -  07 542 3355.
 
 Dear valued customers/suppliers,
