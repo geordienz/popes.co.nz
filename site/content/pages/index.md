@@ -8,6 +8,11 @@ fieldset: home
 youtube_id: PDssNldXl6s
 slides:
   - 
+    title: Holiday Closure
+    content: "Please note that we are closed for general business from 24th December and will return to work on Monday, 11th January, 2021 at 7:30 a.m."
+    color: red
+    image: /assets/img/popes-Christmas-2020.jpg
+    - 
     title: COVID-19 coronavirus
     content: "Please read about Pope Electrical's safe practices and policies during the virus LEVEL-2 'lockdown' - CLICK HERE"
     color: tan
