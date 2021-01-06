@@ -55,7 +55,7 @@ class Term extends Content implements TermContract
             return \Statamic\API\Term::normalizeSlug($this->getSlug());
         }
 
-        $this->setSlug($slug);
+        $this->setSlug(Str::slug($slug));
     }
 
     /**
@@ -451,8 +451,12 @@ class Term extends Content implements TermContract
 
         // Append additional localized data to the bottom of the array.
         foreach (collect($this->locales())->splice(1) as $locale) {
+            $localizedTerm = $this->in($locale);
             $localized = $this->removeLocalizedDataIdenticalToDefault(
-                $this->in($locale)->data(),
+                array_merge(
+                    ['slug' => $localizedTerm->slug()],
+                    $localizedTerm->data()
+                ),
                 $defaultData
             );
 
