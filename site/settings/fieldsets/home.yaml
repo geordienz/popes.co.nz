@@ -11,6 +11,23 @@ fields:
     folder: img
     cheatsheet: false
     restrict_assets: false
+  slides:
+    type: grid
+    fields:
+      title:
+        type: text
+      content:
+        type: textarea
+      color:
+        type: text
+      image:
+        type: assets
+        container: main
+        folder: /
+        max_files: 1
+      link:
+        type: text
+        
   tiles:
     display: Content Tiles
     type: replicator
