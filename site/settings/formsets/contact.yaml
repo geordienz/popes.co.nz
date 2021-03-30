@@ -19,8 +19,8 @@ columns:
 email:
   - 
     to: web_enquiry@popes.co.nz
-    from: '{{email}}'
-    reply_to: talktothefolks@popes.co.nz
+    from: talktothefolks@popes.co.nz
+    reply_to: '{{email}}'
     subject: 'Pope Electrical Service Request re: {{ service }}'
     automagic: true
   - 
