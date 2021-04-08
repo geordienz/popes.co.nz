@@ -16,7 +16,8 @@ assets:
   img/redwood-sign.jpg:
     title: redwood sign
   img/team/nala.jpg:
-    title: Nala, Bone Manager
+    title: 'Nala - Digger'
+    alt: 'Nala - Digger'
   img/heat-pump-1.jpg:
     title: Heat Pump 1
   img/team/leigh.jpg:
