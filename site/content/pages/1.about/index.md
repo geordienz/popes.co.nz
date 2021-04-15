@@ -30,10 +30,6 @@ team:
     title: Office Manager/Accounts
     photo: /assets/img/team/leigh.jpg
   - 
-    name: Shelley Barnett
-    title: Purchasing Manager
-    photo: /assets/img/team/shelley.jpg
-  - 
     name: Zak Portland
     title: Commercial Manager
     photo: /assets/img/team/zak.jpg

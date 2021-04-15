@@ -20,11 +20,11 @@ email:
   - 
     to: web_enquiry@popes.co.nz
     from: noreply@popes.co.nz
-    reply_to: '{{email}}'
+    reply_to: '{{ email }}'
     subject: 'Pope Electrical Service Request re: {{ service }}'
     automagic: true
   - 
     to: noreply@popes.co.nz
-    reply_to: '{{email}}'
+    reply_to: '{{ email }}'
     subject: 'Pope Electrical Service Request re: {{ service }}'
     from: web_enquiry@popes.co.nz
