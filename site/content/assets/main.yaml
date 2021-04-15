@@ -16,23 +16,19 @@ assets:
   img/redwood-sign.jpg:
     title: redwood sign
   img/team/nala.jpg:
-    title: Nala, Bone Manager
-  img/team/richie.jpg:
-    title: Richard Graham
+    title: 'Nala - Digger'
+    alt: 'Nala - Digger'
   img/heat-pump-1.jpg:
     title: Heat Pump 1
   img/team/leigh.jpg:
-    title: Leigh Pope, Accounts Admin
-    alt: Leigh Pope, Accounts Admin
+    title: 'Leigh - Accounts Admin'
+    alt: 'Leigh - Accounts Admin'
   img/team/david.jpg:
-    title: "David O'Sullivan - Waikato Area Mgr"
-    alt: "David O'Sullivan - Waikato Area Mgr"
-  img/team/shelley.jpg:
-    title: 'Shelley Barnett - Purchasing Manager'
-    alt: 'Shelley Barnett - Purchasing Manager'
+    title: 'David  - National Operations Mgr'
+    alt: 'David  - National Operations Mgr'
   img/team/zak.jpg:
-    title: 'Zak Portland - Commercial Manager'
-    alt: 'Zak Portland - Commercial Manager'
+    title: 'Zak - Commercial Manager'
+    alt: 'Zak - Commercial Manager'
   img/team/frank.jpg:
     title: 'Frank Pope - Managing Director'
     alt: 'Frank Pope - Managing Director'
@@ -40,14 +36,14 @@ assets:
     title: 'Ron Pope - Director'
     alt: 'Ron Pope - Director'
   img/team/george.jpg:
-    title: 'George Grant - Health & Safety'
-    alt: 'George Grant - Health & Safety'
+    title: 'George - Electrical Drawing, IT'
+    alt: 'George - Electrical Drawing, IT'
   img/team/dee.jpg:
-    title: 'Dee Pascoe - Sales Consultant'
-    alt: 'Dee Pascoe - Sales Consultant'
+    title: 'Dee - Sales Consultant'
+    alt: 'Dee - Sales Consultant'
   img/team/zane.jpg:
-    title: 'Zane Upton - Site Manager'
-    alt: 'Zane Upton - Site Manager'
+    title: 'Zane - Waikato Area Mgr'
+    alt: 'Zane - Waikato Area Mgr'
   img/covid-19.jpg:
     title: covid-19 virus
     alt: covid-19 stop the spread
