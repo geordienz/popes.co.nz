@@ -1,4 +1,5 @@
-title:  About Us
+---
+title: About Us
 seo:
   description: >
     Pope Electrical are a 3rd generation family business who have been servicing the Bay of Plenty and
@@ -42,5 +43,7 @@ team:
     title: Digger
     photo: /assets/img/team/nala.jpg
 fieldset: default
-id: 3e04358e-3e90-4da5-993b-756a61315bf1
 mount: covid-19
+id: 3e04358e-3e90-4da5-993b-756a61315bf1
+---
+*
