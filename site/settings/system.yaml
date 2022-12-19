@@ -34,12 +34,6 @@ redactor:
         - unorderedlist
         - orderedlist
         - html
-  - 
-    name: Basic
-    settings:
-      buttons:
-        - bold
-        - italic
 send_powered_by_header: true
 ensure_unique_ids: true
 yaml_parser: spyc
