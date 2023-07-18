@@ -13,14 +13,14 @@ slides:
     title: We fit quality Security Alarms
     content: Protect your home 24/7 with a professionally installed Alarm System.
     color: blue
-    image: /assets/img/alarm3.jpg
-    link: /contact
+    image: /assets/img/alarm4.jpg
+    link: /services/security-cctv
   - 
     title: We do Solar Power installations
     content: Help save the planet and cut your power bills!
     color: tan
     image: /assets/img/solar-panel-array.jpg
-    link: /contact
+    link: /services/solar-power
 meta_title: 'Electrical and Solar Installations & Maintenance'
 seo:
   title: Home Page
