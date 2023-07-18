@@ -1,5 +1,9 @@
 slides:
   - 
+    title: Residential Electrical Installs and Servicing
+    content: Take advantage of our 65+ years in the industry and be assured of quality work and service.
+    color: blue
+  - 
     title: We install super-efficient Heat Pumps
     content: Book a consultation today!
     color: tan
