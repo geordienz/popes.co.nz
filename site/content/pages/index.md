@@ -26,7 +26,7 @@ slides:
     content: >
       From a bulb change, to installing a ceiling fan, our servicing electricians will make things as
       painless as possible
-    color: yellow
+    color: green
 meta_title: 'Electrical and Solar Installations & Maintenance'
 seo:
   title: Home Page
