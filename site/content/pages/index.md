@@ -21,6 +21,12 @@ slides:
     color: red
     image: /assets/img/commercial-solar1.jpg
     link: /services/solar-power
+  - 
+    title: 'Residential Maintenance & Servicing'
+    content: >
+      From a bulb change, to installing a ceiling fan, our servicing electricians will make things as
+      painless as possible
+    color: yellow
 meta_title: 'Electrical and Solar Installations & Maintenance'
 seo:
   title: Home Page
