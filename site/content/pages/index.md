@@ -18,8 +18,8 @@ slides:
   - 
     title: We do Solar Power installations
     content: Help save the planet and cut your power bills!
-    color: tan
-    image: /assets/commercial-solar.jpg
+    color: red
+    image: /assets/img/commercial-solar1.jpg
     link: /services/solar-power
 meta_title: 'Electrical and Solar Installations & Maintenance'
 seo:
