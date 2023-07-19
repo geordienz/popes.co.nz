@@ -1,6 +1,6 @@
 slides:
   - 
-    title: Residential Electrical Installs and Servicing
+    title: 'Residential New-builds & Renovations'
     content: Take advantage of our 65+ years in the industry and be assured of quality work and service.
     color: blue
   - 
