@@ -10,13 +10,13 @@ slides:
     image: /assets/img/fujitsu-hp1.jpg
     link: /services/heating
   - 
-    title: We fit quality Security Alarms
+    title: We fit quality Security Systems
     content: Protect your home 24/7 with a professionally installed Alarm System.
     color: blue
     image: /assets/img/alarm4.jpg
     link: /services/security-cctv
   - 
-    title: We do Solar Power installations
+    title: We do Solar Power Installations
     content: Help save the planet and cut your power bills!
     color: red
     image: /assets/img/commercial-solar1.jpg
@@ -26,7 +26,7 @@ slides:
     content: >
       From a bulb change, to installing a ceiling fan, our servicing electricians will make things as
       painless as possible
-    color: green
+    color: grey
 meta_title: 'Electrical and Solar Installations & Maintenance'
 seo:
   title: Home Page
