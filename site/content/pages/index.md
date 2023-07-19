@@ -7,7 +7,7 @@ slides:
     title: We install super-efficient Heat Pumps
     content: Book a consultation today!
     color: tan
-    image: /assets/img/fujitsu-hp.png
+    image: /assets/img/fujitsu-hp1.jpg
     link: /services/heating
   - 
     title: We fit quality Security Alarms
