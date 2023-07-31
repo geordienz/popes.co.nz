@@ -1,16 +1,16 @@
 slides:
   - 
-    title: We fit quality Security Systems
-    content: Protect your home 24/7 with a professionally installed Alarm System.
-    color: blue
-    image: /assets/img/alarm4.jpg
-    link: /services/security-cctv
-  - 
     title: Residential New-builds Renovations
     content: Take advantage of our 65+ years in the industry and be assured of quality work and service.
     color: blue
     image: /assets/img/fujitsu-hp1.jpg
     link: /services/heating
+  - 
+    title: We fit quality Security Systems
+    content: Protect your home 24/7 with a professionally installed Alarm System.
+    color: blue
+    image: /assets/img/alarm4.jpg
+    link: /services/security-cctv
   - 
     title: We install super-efficient Heat Pumps
     content: Book a consultation today!
