@@ -71,3 +71,4 @@ sections:
       _meta:
         type: partial
         fieldset: _meta
+hide: true
