@@ -1,71 +1,73 @@
 title: Service
 taxonomies: false
-hide: true
-fields:
-  summary:
-    type: markdown
-  content:
-    display: Intro Content
-    type: markdown
-    container: main
-    folder: img
-    cheatsheet: false
-    restrict_assets: false
-  tiles:
-    display: Content Tiles
-    type: replicator
-    sets:
-      full:
-        display: Full Width
-        fields:
-          content:
-            type: markdown
-      link:
-        display: Link
-        fields:
-          content:
-            type: markdown
+sections:
+  main:
+    display: Main
+    fields:
+      summary:
+        type: markdown
+      content:
+        display: Intro Content
+        type: markdown
+        container: main
+        folder: img
+        cheatsheet: false
+        restrict_assets: false
+      tiles:
+        display: Content Tiles
+        type: replicator
+        sets:
+          full:
+            display: Full Width
+            fields:
+              content:
+                type: markdown
           link:
-            type: text
-          link_text_small:
-            type: text
-          link_text_large:
-            type: text
-      shout:
-        display: Shout Out
-        fields:
-          content:
-            type: markdown
-          shout_text_small:
-            type: text
-          shout_text_large:
-            type: text
-      video:
-        display: Video
-        fields:
-          content:
-            type: markdown
-          video_url:
-            type: text
-          thumbnail:
-            type: assets
-            container: main
-            max_files: 1
-            folder: img
-          caption:
-            type: text
-      photo:
-        display: Photo
-        fields:
-          content:
-            type: markdown
+            display: Link
+            fields:
+              content:
+                type: markdown
+              link:
+                type: text
+              link_text_small:
+                type: text
+              link_text_large:
+                type: text
+          shout:
+            display: Shout Out
+            fields:
+              content:
+                type: markdown
+              shout_text_small:
+                type: text
+              shout_text_large:
+                type: text
+          video:
+            display: Video
+            fields:
+              content:
+                type: markdown
+              video_url:
+                type: text
+              thumbnail:
+                type: assets
+                container: main
+                max_files: 1
+                folder: img
+              caption:
+                type: text
           photo:
-            type: assets
-            container: main
-            max_files: 1
-            folder: img
-          caption:
-            type: text
-  _meta:
-    type: partial
-    fieldset: _meta
+            display: Photo
+            fields:
+              content:
+                type: markdown
+              photo:
+                type: assets
+                container: main
+                max_files: 1
+                folder: img
+              caption:
+                type: text
+      _meta:
+        type: partial
+        fieldset: _meta
