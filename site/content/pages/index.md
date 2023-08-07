@@ -35,7 +35,7 @@ tiles:
 meta_title: 'Electrical and Solar Installations & Maintenance'
 seo:
   title: Home Page
-  description: Pope Electrical are proud to have been servicing the Bay of Plenty and beyond for over 60 years!
+  description: Pope Electrical are proud to have been servicing the Bay of Plenty and beyond for over 65 years!
 title: Home
 template: home
 fieldset: home
