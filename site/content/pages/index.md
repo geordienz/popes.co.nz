@@ -1,12 +1,8 @@
 slides:
   - 
-    title: 'Residential New-builds & Renovations'
+    title: 'We do Residential New-builds & Renovations'
     content: Take advantage of our 65+ years in the industry and be assured of quality work and service.
     color: blue
-  - 
-    title: We install super-efficient Heat Pumps
-    content: Book a consultation today!
-    color: tan
     image: /assets/img/fujitsu-hp1.jpg
     link: /services/heating
   - 
@@ -16,6 +12,12 @@ slides:
     image: /assets/img/alarm4.jpg
     link: /services/security-cctv
   - 
+    title: We install super-efficient Heat Pumps
+    content: Book a consultation today!
+    color: tan
+    image: /assets/img/fujitsu-hp1.jpg
+    link: /services/heating
+  - 
     title: We do Solar Power Installations
     content: Help save the planet and cut your power bills!
     color: red
@@ -24,7 +26,7 @@ slides:
   - 
     title: 'Residential Maintenance & Servicing'
     content: >
-      From a bulb change, to installing a ceiling fan, our servicing electricians will make things as
+      From a bulb change, to hard-wiring a spa pool, our servicing electricians will make things as
       painless as possible
     color: tan
 tiles:
@@ -33,7 +35,7 @@ tiles:
 meta_title: 'Electrical and Solar Installations & Maintenance'
 seo:
   title: Home Page
-  description: Pope Electrical are proud to have been servicing the Bay of Plenty and beyond for over 60 years!
+  description: Pope Electrical are proud to have been servicing the Bay of Plenty and beyond for over 65 years!
 title: Home
 template: home
 fieldset: home
