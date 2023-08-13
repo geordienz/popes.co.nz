@@ -23,7 +23,7 @@
                 {{ if slug == "services" }}
                 <ul class="dropdown">
                     <li><a href="/services"><strong>Services Overview</strong></a></li>
-                    {{ collection:services sort="title:asc" }}
+                    {{ collection:services }}
                     <li><a href="{{ url }}">{{ title }}</a></li>
                     {{ /collection:services }}
                 </ul>
