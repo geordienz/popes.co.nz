@@ -29,6 +29,7 @@ slides:
       From a bulb change, to hard-wiring a spa pool, our servicing electricians will make things as
       painless as possible
     color: tan
+    image: /assets/img/pope-electrician-with-residential-customer-30.jpg
 tiles:
   - 
     type: shout
