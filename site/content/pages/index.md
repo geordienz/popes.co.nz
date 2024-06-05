@@ -18,8 +18,10 @@ slides:
     image: /assets/img/fujitsu-hp1.jpg
     link: /services/heating
   - 
-    title: We do Solar Power Installations
-    content: Help save the planet and cut your power bills!
+    title: We supply and install state-of-the-art Solar Power Systems
+    content: |
+      Harness the power of the sun and cut your power bills.
+      Our team are second to none!
     color: red
     image: /assets/img/commercial-solar1.jpg
     link: /services/solar-power
