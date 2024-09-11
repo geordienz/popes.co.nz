@@ -1,0 +1,44 @@
+name: Davidpam
+phone: "86641336192"
+email: mosoce-416@mail.ru
+service: home-automation
+message: |
+  Краска наносится после того, как грунтовка полностью высохнет https://mosvrata.ru/tovar/came-lb90-plata-avarijnogo-pitaniya/
+  Рекомендуется использовать алкидную эмаль, притом наносить ее минимум в два слоя &ndash; так ворота будут выглядеть  https://mosvrata.ru/tovar/avtomatika-dlya-sektsionnyh-vorot-doorhan-sectional-500-full-kit/
+  Между нанесением первого и второго слоев делают паузу, чтобы краска высохла https://mosvrata.ru/tovar/doorhan-uplotnitel-bokovoj-dlya-sektsionnyh/
+  
+  Работу нужно начинать с изготовления рамы https://mosvrata.ru/tovar/antenna-came-top-a40/
+  Чем больше проем для ворот и толще лист железа, предназначенный для полотна их створок, тем более усиленной должна быть рама https://mosvrata.ru/tovar/came-opora-statsionarnaya-dlya-strely-shlagb/
+  Её нужно сварить на земле, а затем вставлять в проем https://mosvrata.ru/catalog/gates/garage/
+  Нижнюю часть закрепить стяжкой https://mosvrata.ru/tovar/antenna-came-dd-1ta868/
+  Бока анкерами https://mosvrata.ru/tovar/mehanicheskij-povorotnyj-shlagbaum-standart-3-m/
+  Полотна ворот сварить, очень точно вымеряв размеры рамы https://mosvrata.ru/catalog/avtomatika-dlya-vorot/
+  Готовые створки нужно навесить на петли https://mosvrata.ru/catalog/page/32/
+  После этого убедиться двигаются ли ворота свободно, а также плотность прилегания створок https://mosvrata.ru/catalog/avtomatika-dlya-vorot/raspashnyh/page/5/
+  Теперь очередь за автоматикой https://mosvrata.ru/tovar/roger-kt228-kronshtejn-krepleniya-lampy/
+  
+  Если вы решили купить откатные ворота автоматического действия, такое приобретение принесет немало преимуществ, особенно в зимнее время https://mosvrata.ru/tovar/ctv-dp2700tm-w-b/
+  Конструкция может нормально функционировать при снегопаде, сугробах и сильном ветре https://mosvrata.ru/catalog/aksessuary/page/16/
+  Даже лед не станет препятствием для эффективной работы https://mosvrata.ru/tovar/alutech-an-motors-asg6003kit-24m-privod-dlya-garazhnyh-vorot/
+  
+  Размерная линейка рулонных конструкций значительно шире, чем у любых других видов ворот https://mosvrata.ru/tovar/avtomatika-dlya-raspashnyh-vorot-an-motors-asw-5000-full-kit/
+  Производители выпускают изделия шириной вплоть до 1200 см, высотой &ndash; до 1000 см https://mosvrata.ru/tovar/knopka-statsionarnaya-3h-knopochnaya-2/
+  В открытом состоянии ворота рулонного типа очень компактны https://mosvrata.ru/tovar/ruchnoj-shlagbaum-fantom-2000/
+  Они универсальны и могут устанавливаться в помещениях складского типа, а также в торговых центрах https://mosvrata.ru/tovar/faac-xf-433-mgts-radiopriemnik-2-kanalnyj/
+  
+  Для изготовления автоматических ворот потребуются определенные навыки работы с техникой, не нужно верить тем, кто убеждает вас в обратном https://mosvrata.ru/catalog/avtomatika-dlya-vorot/page/24/
+  Это неоднократно было доказано народными умельцами https://mosvrata.ru/catalog/page/17/
+  
+  Алексей, если вы не понимаете, даже примерно, как подключать концевики, то вам лучше пригласить электрика https://mosvrata.ru/tovar/ctv-dp2700-dax-w/
+  У вас на данный момент одноканальное устройство (правда не пойму, зачем там две кнопки) https://mosvrata.ru/tovar/roltek-eko-komplektuyushhie-dlya-otkatnyh-vorot-do-500-kg-5m/
+  Все что ваше устройство может  замыкать и размыкать цепь (точнее оно может быть либо в замкнутом состоянии, либо разомкнутом) https://mosvrata.ru/tovar/doorhan-pcb-sw-blok-upravleniya/
+  Следовательно, чтобы вам собрать схему на открывание и закрывание, вам надо будет продумывать автоматику, которая будет иметь два крайних состояния https://mosvrata.ru/tovar/bft-plastikovye-nakladki-66-m-na-strelu-kr/
+  Предположим, ворота закрыты  это одно крайнее состояние, как только оно достигается, простейшая автоматика переключается в режим открывания https://mosvrata.ru/catalog/avtomatika-dlya-vorot/garazhnyh/page/5/
+  Вы нажимаете кнопку, автоматика срабатывает и пока не дойдет до полного открытия, автоматика не отключается https://mosvrata.ru/tovar/otkatnoj-antivandalnyj-shlagbaum-mini-4-m-avtomaticheskij/
+  Как только происходит открытие это второе крайнее состояние, автоматика снова переключается на закрытие и ждет сигнала https://mosvrata.ru/tovar/came-plata-avarijnogo-pitaniya-dlya-cat-x24-i-shlag/
+  Если бы блок работал на постоянном токе со сменой полярности (по типу вперед-назад), то еще можно было бы сделать все проще, но в вашем случае, вы только даете сигнал, что вы нажали кнопку на пульте, а все остальное должна делать автоматика, которая будет запускаться от вашей команды https://mosvrata.ru/tovar/privod-dlya-garazhnyh-vorot-nordmotors-ns800/
+  Теоретически, я могу разработать подобную схему  но это уже квалифицированный труд, выходящий за рамки консультирования на сайте https://mosvrata.ru/tovar/came-cgz6-rejka-zubchataya-1-m/
+  Для организации вам потребуется реверсивная схема включения двигателя (два пускателя), один реверсивный пускатель (который будет переключать режимы) и концевики с двумя парами контактов (которые будут сигнализировать не только об окончании хода ворот, но и об их отсутствии https://mosvrata.ru/tovar/signalnaya-lampa-an-motors-f5000/
+  Концевики управляют реверсивным пускателем, который управляет реверсивной схемой двигателя https://mosvrata.ru/tovar/sharnirnaya-opora-strely-nordmotors/
+  Реверсивный пускатель должен иметь нормально замкнутые и нормально разомкнутые контакты https://mosvrata.ru/catalog/page/4/
+  Ну и логично будет сделать так, чтобы реверсивный пускатель включался, когда ворота полностью откроются, и выключался, когда полностью закроются (ведь большую часть времени ворота закрыты, следовательно, какой смысл в том, чтобы реверсивный пускатель в это время работал) https://mosvrata.ru/catalog/avtomatika-dlya-vorot/otkatnyh/page/6/
